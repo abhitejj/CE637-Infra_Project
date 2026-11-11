@@ -1,0 +1,25 @@
+depot_id,depot_name,warehouse_id,warehouse_name,distance_km,unit_cost_inr_per_mt,wheat_shipped_mt,rice_shipped_mt,total_shipped_mt,total_cost_inr,tonne_km
+D1,FSD Sabarmati (Ahmedabad),W1,Ahmedabad District Warehouse,6.74,116.85,24000.0,10000.0,34000.0,3972900.0,229160.0
+D1,FSD Sabarmati (Ahmedabad),W2,Surat District Warehouse,257.42,743.55,3000.0,8000.0,11000.0,8179050.0,2831620.0
+D1,FSD Sabarmati (Ahmedabad),W3,Vadodara District Warehouse,122.3,405.75,0.0,0.0,0.0,0.0,0.0
+D1,FSD Sabarmati (Ahmedabad),W4,Rajkot District Warehouse,220.33,650.83,0.0,0.0,0.0,0.0,0.0
+D1,FSD Sabarmati (Ahmedabad),W5,Banaskantha District Warehouse (Palanpur),140.2,450.5,0.0,0.0,0.0,0.0,0.0
+D1,FSD Sabarmati (Ahmedabad),W6,Kutch District Warehouse (Bhuj),356.93,992.32,0.0,0.0,0.0,0.0,0.0
+D2,FSD Chhani (Vadodara),W1,Ahmedabad District Warehouse,102.57,356.42,0.0,0.0,0.0,0.0,0.0
+D2,FSD Chhani (Vadodara),W2,Surat District Warehouse,154.88,487.2,7000.0,-0.0,7000.0,3410400.0,1084160.0
+D2,FSD Chhani (Vadodara),W3,Vadodara District Warehouse,7.52,118.8,14000.0,7000.0,21000.0,2494800.0,157920.0
+D2,FSD Chhani (Vadodara),W4,Rajkot District Warehouse,274.75,786.88,0.0,0.0,0.0,0.0,0.0
+D2,FSD Chhani (Vadodara),W5,Banaskantha District Warehouse (Palanpur),253.34,733.35,0.0,0.0,0.0,0.0,0.0
+D2,FSD Chhani (Vadodara),W6,Kutch District Warehouse (Bhuj),450.5,1226.25,0.0,0.0,0.0,0.0,0.0
+D3,FSD Ghanteshwar (Rajkot),W1,Ahmedabad District Warehouse,222.45,656.12,0.0,0.0,0.0,0.0,0.0
+D3,FSD Ghanteshwar (Rajkot),W2,Surat District Warehouse,429.79,1174.48,12000.0,-0.0,12000.0,14093760.0,5157480.0
+D3,FSD Ghanteshwar (Rajkot),W3,Vadodara District Warehouse,290.03,825.08,0.0,0.0,0.0,0.0,0.0
+D3,FSD Ghanteshwar (Rajkot),W4,Rajkot District Warehouse,8.53,121.32,13000.0,5000.0,18000.0,2183760.0,153540.0
+D3,FSD Ghanteshwar (Rajkot),W5,Banaskantha District Warehouse (Palanpur),326.63,916.58,0.0,0.0,0.0,0.0,0.0
+D3,FSD Ghanteshwar (Rajkot),W6,Kutch District Warehouse (Bhuj),239.24,698.1,0.0,0.0,0.0,0.0,0.0
+D4,FSD Gandhidham (Kutch),W1,Ahmedabad District Warehouse,356.7,991.75,0.0,0.0,0.0,0.0,0.0
+D4,FSD Gandhidham (Kutch),W2,Surat District Warehouse,564.04,1510.1,0.0,4000.0,4000.0,6040400.0,2256160.0
+D4,FSD Gandhidham (Kutch),W3,Vadodara District Warehouse,424.27,1160.68,0.0,0.0,0.0,0.0,0.0
+D4,FSD Gandhidham (Kutch),W4,Rajkot District Warehouse,199.86,599.65,0.0,0.0,0.0,0.0,0.0
+D4,FSD Gandhidham (Kutch),W5,Banaskantha District Warehouse (Palanpur),320.28,900.7,11000.0,5000.0,16000.0,14411200.0,5124480.0
+D4,FSD Gandhidham (Kutch),W6,Kutch District Warehouse (Bhuj),57.62,244.05,6000.0,3000.0,9000.0,2196450.0,518580.0

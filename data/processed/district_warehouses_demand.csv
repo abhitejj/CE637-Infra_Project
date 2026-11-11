@@ -1,0 +1,7 @@
+warehouse_id,name,district,latitude,longitude,wheat_demand_mt,rice_demand_mt,agency
+W1,Ahmedabad District Warehouse,Ahmedabad,23.0225,72.5714,24000,10000,Assumed district demand proxy
+W2,Surat District Warehouse,Surat,21.1702,72.8311,22000,12000,Assumed district demand proxy
+W3,Vadodara District Warehouse,Vadodara,22.3072,73.1812,14000,7000,Assumed district demand proxy
+W4,Rajkot District Warehouse,Rajkot,22.3039,70.8022,13000,5000,Assumed district demand proxy
+W5,Banaskantha District Warehouse (Palanpur),Banaskantha,24.1724,72.4346,11000,5000,Assumed district demand proxy
+W6,Kutch District Warehouse (Bhuj),Kutch,23.242,69.6669,6000,3000,Assumed district demand proxy

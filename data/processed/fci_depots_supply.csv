@@ -1,0 +1,5 @@
+depot_id,name,district,latitude,longitude,wheat_supply_mt,rice_supply_mt,max_dispatch_cap_mt,facility_type
+D1,FSD Sabarmati (Ahmedabad),Ahmedabad,23.076,72.58,35000,18000,45000,Assumed supply depot proxy
+D2,FSD Chhani (Vadodara),Vadodara,22.358,73.165,22000,12000,28000,Assumed supply depot proxy
+D3,FSD Ghanteshwar (Rajkot),Rajkot,22.345,70.755,25000,10000,30000,Assumed supply depot proxy
+D4,FSD Gandhidham (Kutch),Kutch,23.0753,70.1337,30000,15000,38000,Assumed supply depot proxy

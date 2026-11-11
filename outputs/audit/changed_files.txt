@@ -1,0 +1,25 @@
+src/01_build_dataset.py
+src/05_generate_figures.py
+src/02_generate_input_tables.py
+src/04_sensitivity_analysis.py
+src/03_solve_optimization.py
+report/Final_Report.md
+report/Poster.tex
+report/Final_Report.tex
+report/01_problem_and_model.md
+data/source_register.csv
+data/processed/fci_depots_supply.csv
+data/processed/district_warehouses_demand.csv
+outputs/tables/input_tables.md
+outputs/tables/input_tables.tex
+outputs/tables/shadow_prices_and_slacks.csv
+outputs/tables/sensitivity_results.csv
+outputs/tables/solver_diagnostics.json
+outputs/tables/sensitivity_summary.md
+tests/test_phase3_qa.py
+tests/test_phase1_qa.py
+tests/test_audit_regressions.py
+tests/test_phase4_qa.py
+README.md
+PROJECT_GUIDE.md
+src/reproduce.py (new)

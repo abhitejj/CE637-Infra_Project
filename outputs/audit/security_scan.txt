@@ -1,0 +1,1 @@
+Scoped secret-pattern scan of src/*.py: 0 matching files.

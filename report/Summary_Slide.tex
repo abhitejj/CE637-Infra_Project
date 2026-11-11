@@ -1,0 +1,62 @@
+\documentclass[aspectratio=169,10pt]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{booktabs}
+\definecolor{courseblue}{RGB}{27,57,85}
+\setbeamercolor{structure}{fg=courseblue}
+\setbeamercolor{frametitle}{fg=courseblue}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{\hspace{0.35cm}\scriptsize IIT Gandhinagar\hfill CE 637 Course Project\hspace{0.35cm}\vspace{0.15cm}}
+\setbeamersize{text margin left=0.55cm,text margin right=0.55cm}
+\begin{document}
+\begin{frame}[t]{Food Grain Distribution in Gujarat: Summary}
+{\scriptsize Abhitej Singh Bhullar (23110009) \quad Radhika Purohit (24110280) \hfill November 2026}\par\vspace{0.10cm}\small
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.49\textwidth}\small
+\textbf{The decision}\par
+Allocate wheat and rice from four depots to six districts at minimum cost, within stock and loading limits.
+\vspace{0.15cm}
+
+\textbf{Model and method}
+\begin{itemize}\setlength{\itemsep}{1pt}
+\item 48 shipment variables; 24 constraints.
+\item Two-Phase Simplex: 56 pivots; same cost as SciPy HiGHS.
+\end{itemize}
+\vspace{0.1cm}
+\textbf{Why Surat needs four depots}\par
+{\small
+\begin{tabular}{lr}
+\toprule
+Supply depot & Surat allocation (MT)\\
+\midrule
+Sabarmati & 11,000\\
+Chhani & 7,000\\
+Ghanteshwar & 12,000\\
+Gandhidham & 4,000\\
+\bottomrule
+\end{tabular}}
+\end{column}
+\begin{column}{0.47\textwidth}\small
+\textbf{Main results}\par\vspace{0.1cm}
+\begin{tabular}{@{}lr@{}}
+Demand met & \textbf{132,000 MT}\\[2pt]
+Monthly cost & \textbf{Rs.\ 5.6983 crore}\\[2pt]
+Average cost & \textbf{Rs.\ 431.69/MT}\\[2pt]
+Active routes & \textbf{9 of 24}\\
+\end{tabular}
+\vspace{0.25cm}
+
+\textbf{Chhani loading-capacity expansion}
+\begin{itemize}\setlength{\itemsep}{2pt}
+\item Raise monthly capacity from 28,000 to 34,000 MT.
+\item Save \textbf{Rs.\ 55.05 lakh/month}, or \textbf{Rs.\ 6.61 crore/year}.
+\item Baseline shadow price: Rs.\ 1,022.90/MT; no benefit beyond 34,000 MT stock.
+\end{itemize}
+\textbf{Recommendation:} Compare loading-capacity expansion costs with the estimated savings.
+\end{column}
+\end{columns}
+\vspace{0.05cm}
+{\scriptsize Inputs: assumed stocks, demand, loading capacity and freight rates; OSRM road distances.}
+\end{frame}
+\end{document}

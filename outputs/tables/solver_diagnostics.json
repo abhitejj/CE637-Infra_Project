@@ -1,0 +1,22 @@
+{
+  "status": "OPTIMAL",
+  "simplex_pivots_phase1": 28,
+  "simplex_pivots_phase2": 28,
+  "simplex_total_pivots": 56,
+  "simplex_artificial_cleanup_pivots": 0,
+  "simplex_tolerance": 1e-09,
+  "exported_allocation_solver": "SciPy HiGHS highs-ds",
+  "maximum_custom_highs_allocation_difference_mt": 5000.0,
+  "custom_max_primal_violation_mt": 0.0,
+  "highs_max_primal_violation_mt": 0.0,
+  "custom_simplex_Z_star_inr": 56982720.0,
+  "scipy_highs_Z_star_inr": 56982720.0,
+  "discrepancy_abs_inr": 0.0,
+  "total_demand_satisfied_mt": 132000.0,
+  "total_system_cost_inr": 56982720.0,
+  "total_system_cost_inr_crores": 5.6983,
+  "average_cost_per_mt_inr": 431.69,
+  "total_tonne_km": 17513100.0,
+  "average_lead_distance_km": 132.68,
+  "alternative_optima_note": "Because unit transportation cost c_ij is identical for wheat and rice on any shared corridor, feasible wheat/rice exchanges preserving stock and capacity limits can yield identical cost. Reported allocation is the selected SciPy HiGHS optimum; the custom simplex may select another optimum."
+}

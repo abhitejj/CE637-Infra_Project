@@ -1,0 +1,8 @@
+{
+  "url": "https://router.project-osrm.org/table/v1/driving/72.5800,23.0760;73.1650,22.3580;70.7550,22.3450;70.1337,23.0753;72.5714,23.0225;72.8311,21.1702;73.1812,22.3072;70.8022,22.3039;72.4346,24.1724;69.6669,23.2420?sources=0;1;2;3&destinations=4;5;6;7;8;9&annotations=distance,duration",
+  "retrieved_at_utc": "20261106T202929537569Z",
+  "sha256": "bc5ce0f7c3f330fa8185734752f0b5d325861638e011841bbccfeeb3afb66cc8",
+  "http_status": 200,
+  "baseline_updated": false,
+  "note": "Driving profile fastest-route distance proxy; no truck restrictions verified"
+}
