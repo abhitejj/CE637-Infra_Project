@@ -4,6 +4,12 @@ CE 637 Infrastructure Systems: Planning and Management, IIT Gandhinagar. Authors
 
 The model selects four supply nodes and six district demand proxy points for wheat and rice. It minimizes monthly freight and handling cost with commodity stocks, district requirements and shared depot dispatch limits: 48 shipment variables and 24 inequalities. This is an illustrative scenario, not a verified Gujarat operating plan.
 
+## Project poster
+
+[![Optimisation of Food Grain Distribution in Gujarat — Course Project Poster](outputs/figures/poster_preview.png)](report/Poster.pdf)
+
+*Click the poster image above or [open report/Poster.pdf](report/Poster.pdf) to view or download the full-resolution A3 landscape PDF deliverable.*
+
 ## Data status
 
 Coordinates, stocks, dispatch caps, district requirements and the ₹100/MT handling and ₹2.50/MT-km haulage coefficients are **ASSUMPTION**. Historical government records support selected facility names only. The stored OSRM response is **RETRIEVED** evidence, with no independently verified original acquisition timestamp; rounded distances, durations and costs are **CALCULATED**. OSRM uses fastest driving routes, not certified truck paths. Field-level categories, verification status and sources are in `data/source_register.csv`. Read `outputs/audit/data_provenance_audit.md` for evidence and access limitations.
@@ -22,7 +28,7 @@ Use the existing `.venv` or create a Python environment and install `requirement
 
 ## Deliverables and evidence
 
-`report/Final_Report.pdf`: seven A4 pages, one technical section per page plus references. `report/Poster.pdf`: one A3 landscape page. Markdown/LaTeX sources are in `report/`; computational tables and figures are in `outputs/`. Audit findings and full verification logs are in `outputs/audit/`.
+[`report/Final_Report.pdf`](report/Final_Report.pdf): seven A4 pages, one technical section per page plus references. [`report/Poster.pdf`](report/Poster.pdf): one A3 landscape page (previewed above). Markdown/LaTeX sources are in `report/`; computational tables and figures are in `outputs/`. Audit findings and full verification logs are in `outputs/audit/`.
 
 The independent audit found that the earlier passing tests overlooked false provenance labels, a wrong breakpoint, a one-row flow discrepancy, unsupported payback claims and solver edge-case failures. The corrected checks execute the solver, compare feasibility and objectives with HiGHS, exercise infeasible and degenerate cases, test immutable replay and check final PDF content.
 
