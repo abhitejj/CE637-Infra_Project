@@ -3,6 +3,13 @@ __pycache__/
 *.pyc
 .DS_Store
 
+# Agent workflows and definitions
+.agents/
+
+# Internal project guide
+PROJECT_GUIDE.md
+project_guide.md
+
 # TeX / LaTeX build artifacts
 *.aux
 *.log

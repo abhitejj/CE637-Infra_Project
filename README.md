@@ -16,7 +16,7 @@ Coordinates, stocks, dispatch caps, district requirements and the ₹100/MT hand
 
 ## Reproduce
 
-Use the existing `.venv` or create a Python environment and install `requirements.txt` plus `pypdf` for PDF checks. LaTeX (`pdflatex`) is required to compile the deliverables. Run `.venv/bin/python scripts/reproduce.py` (details in `PROJECT_GUIDE.md`); it replays the stored response without changing raw evidence. No live network query is needed to reproduce baseline results. An explicit refresh preserves a separate snapshot and does not replace baseline evidence.
+Use the existing `.venv` or create a Python environment and install `requirements.txt` plus `pypdf` for PDF checks. LaTeX (`pdflatex`) is required to compile the deliverables. Run `.venv/bin/python scripts/reproduce.py`; it replays the stored response without changing raw evidence. No live network query is needed to reproduce baseline results. An explicit refresh preserves a separate snapshot and does not replace baseline evidence.
 
 ## Verified results
 
