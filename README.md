@@ -3,7 +3,6 @@
 **CE 637 Infrastructure Systems: Planning and Management — Course Project**  
 *Indian Institute of Technology Gandhinagar*  
 *Authors:* **Abhitej Singh Bhullar** (Roll No. 23110009) & **Radhika Purohit** (Roll No. 24110280)  
-*Date:* November 2026  
 
 ---
 
