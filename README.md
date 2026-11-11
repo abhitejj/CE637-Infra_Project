@@ -6,7 +6,7 @@
 
 ---
 
-## Executive Poster Showcase
+## Poster 
 
 [![Optimisation of Food Grain Distribution in Gujarat — Course Project Poster](outputs/figures/poster_preview.png)](report/Poster.pdf)
 
