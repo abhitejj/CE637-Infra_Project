@@ -45,7 +45,7 @@
 \vspace{6pt}
 
 \section*{Section 1: The Question}
-At the beginning of each month, the General Manager (Logistics \& Movement) at the Food Corporation of India (FCI) Gujarat Regional Office, in coordination with the Managing Director of the Gujarat State Civil Supplies Corporation Limited (GSCSCL), must decide how wheat and rice should move from storage depots to district warehouses so that households can receive their food grains through the public distribution system under the National Food Security Act (NFSA). In the simplified Gujarat network considered in this study, grain is available at four depots : Sabarmati, Chhani, Ghanteshwar and Gandhidham, and must be delivered to six districts: Ahmedabad, Surat, Vadodara, Rajkot, Banaskantha and Kutch. Together, these districts require 132,000 metric tonnes (MT) per month, comprising 90,000 MT of wheat and 42,000 MT of rice. Sending each district's requirement from its nearest depot may seem the obvious choice, but the nearest depot cannot always load enough grain. For example, Chhani can dispatch only 28,000 MT per month, while nearby Vadodara and Surat together require 55,000 MT, so other depots must help meet their demand. Those additional shipments may travel farther and increase the transport bill. The planner must track wheat and rice separately. Spare rice cannot fill a wheat order, and both grains use the same loading facilities. \textbf{The challenge is therefore to decide how many tonnes of wheat and rice to send along each of the 24 depot-to-district routes so that every district receives its full monthly requirement at the lowest total transport and handling cost, without exceeding any depot's available stock or loading capacity.}
+At the beginning of each month, the General Manager (Logistics \& Movement) at the Food Corporation of India (FCI) Gujarat Regional Office, in coordination with the Managing Director of the Gujarat State Civil Supplies Corporation Limited (GSCSCL), must decide how wheat and rice should move from storage depots to district warehouses so that households can receive their food grains through the public distribution system under the National Food Security Act (NFSA). In the simplified Gujarat network considered in this study, grain is available at four depots : Sabarmati, Chhani, Ghanteshwar and Gandhidham, and must be delivered to six districts: Ahmedabad, Surat, Vadodara, Rajkot, Banaskantha and Kutch. Together, these districts require 1,32,000 metric tonnes (MT) per month, comprising 90,000 MT of wheat and 42,000 MT of rice. Sending each district's requirement from its nearest depot may seem the obvious choice, but the nearest depot cannot always load enough grain. For example, Chhani can dispatch only 28,000 MT per month, while nearby Vadodara and Surat together require 55,000 MT, so other depots must help meet their demand. Those additional shipments may travel farther and increase the transport bill. The planner must track wheat and rice separately. Spare rice cannot fill a wheat order, and both grains use the same loading facilities. \textbf{The challenge is therefore to decide how many tonnes of wheat and rice to send along each of the 24 depot-to-district routes so that every district receives its full monthly requirement at the lowest total transport and handling cost, without exceeding any depot's available stock or loading capacity.}
 
 \vspace{6pt}
 \begin{center}
@@ -57,12 +57,12 @@ At the beginning of each month, the General Manager (Logistics \& Movement) at t
 \resizebox{\textwidth}{!}{
 \begin{tabular}{rcccl}
 \textbf{FCI Depots} & & & & \textbf{GSCSCL District Warehouses}\\
-\textbf{D1: Sabarmati (Ahmd)} [Cap: 45k MT; Stock: 35k W, 18k R] & $\xrightarrow{\hspace{1.2cm}}$ & $\dots$ & $\xrightarrow{\hspace{1.2cm}}$ & \textbf{W1: Ahmedabad} [Demand: 24k W, 10k R] (34k MT)\\
-\textbf{D2: Chhani (Vadodara)} [Cap: 28k MT; Stock: 22k W, 12k R] & $\xrightarrow{\hspace{1.2cm}}$ & $\dots$ & $\xrightarrow{\hspace{1.2cm}}$ & \textbf{W2: Surat} [Demand: 22k W, 12k R] (34k MT)\\
-\textbf{D3: Ghanteshwar (Rajkot)} [Cap: 30k MT; Stock: 25k W, 10k R] & $\xrightarrow{\hspace{1.2cm}}$ & $\dots$ & $\xrightarrow{\hspace{1.2cm}}$ & \textbf{W3: Vadodara} [Demand: 14k W, 7k R] (21k MT)\\
-\textbf{D4: Gandhidham (Kutch)} [Cap: 38k MT; Stock: 30k W, 15k R] & $\xrightarrow{\hspace{1.2cm}}$ & $\dots$ & $\xrightarrow{\hspace{1.2cm}}$ & \textbf{W4: Rajkot} [Demand: 13k W, 5k R] (18k MT)\\
-& & & $\xrightarrow{\hspace{1.2cm}}$ & \textbf{W5: Banaskantha} [Demand: 11k W, 5k R] (16k MT)\\
-\textit{Shared Loading Bays and Weighbridges} & & & $\xrightarrow{\hspace{1.2cm}}$ & \textbf{W6: Kutch/Bhuj} [Demand: 6k W, 3k R] (9k MT)\\
+\textbf{D1: Sabarmati (Ahmd)} [Cap: 45,000 MT; Stock: 35,000 W, 18,000 R] & $\xrightarrow{\hspace{1.2cm}}$ & $\dots$ & $\xrightarrow{\hspace{1.2cm}}$ & \textbf{W1: Ahmedabad} [Demand: 24,000 W, 10,000 R] (34,000 MT)\\
+\textbf{D2: Chhani (Vadodara)} [Cap: 28,000 MT; Stock: 22,000 W, 12,000 R] & $\xrightarrow{\hspace{1.2cm}}$ & $\dots$ & $\xrightarrow{\hspace{1.2cm}}$ & \textbf{W2: Surat} [Demand: 22,000 W, 12,000 R] (34,000 MT)\\
+\textbf{D3: Ghanteshwar (Rajkot)} [Cap: 30,000 MT; Stock: 25,000 W, 10,000 R] & $\xrightarrow{\hspace{1.2cm}}$ & $\dots$ & $\xrightarrow{\hspace{1.2cm}}$ & \textbf{W3: Vadodara} [Demand: 14,000 W, 7,000 R] (21,000 MT)\\
+\textbf{D4: Gandhidham (Kutch)} [Cap: 38,000 MT; Stock: 30,000 W, 15,000 R] & $\xrightarrow{\hspace{1.2cm}}$ & $\dots$ & $\xrightarrow{\hspace{1.2cm}}$ & \textbf{W4: Rajkot} [Demand: 13,000 W, 5,000 R] (18,000 MT)\\
+& & & $\xrightarrow{\hspace{1.2cm}}$ & \textbf{W5: Banaskantha} [Demand: 11,000 W, 5,000 R] (16,000 MT)\\
+\textit{Shared Loading Bays and Weighbridges} & & & $\xrightarrow{\hspace{1.2cm}}$ & \textbf{W6: Kutch/Bhuj} [Demand: 6,000 W, 3,000 R] (9,000 MT)\\
 \end{tabular}
 }
 \end{minipage}
@@ -91,7 +91,7 @@ At the beginning of each month, the General Manager (Logistics \& Movement) at t
 \textbf{W5} & Palanpur district HQ & Banaskantha & Warehouse & 24.1724$^\circ$N & 72.4346$^\circ$E & 11,000 & 5,000 & Demand: 16,000 MT (12.12\%) \\
 \textbf{W6} & Bhuj district HQ& Kutch & Warehouse & 23.2420$^\circ$N & 69.6669$^\circ$E & 6,000 & 3,000 & Demand: 9,000 MT (6.82\%) \\
 \midrule
-\multicolumn{4}{l}{\textbf{Total Available Stock / District Demand}} & & & \textbf{112,000 / 90,000} & \textbf{55,000 / 42,000} & \textbf{System Cap: 141,000 / Demand: 132,000 MT} \\
+\multicolumn{4}{l}{\textbf{Total Available Stock / District Demand}} & & & \textbf{1,12,000 / 90,000} & \textbf{55,000 / 42,000} & \textbf{System Cap: 1,41,000 / Demand: 1,32,000 MT} \\
 \bottomrule
 \end{tabular}
 }
@@ -178,7 +178,7 @@ Because shipping grain costs money on every route, the solver will never ship mo
 \subsection*{1. Why Linear Programming and Two-Phase Simplex Fit This Problem}
 Linear Programming was chosen because cost, stock use, district deliveries and depot loading are all sums of the tonnes shipped, with a fixed cost per tonne on each route. Standard transportation methods such as MODI and Stepping-Stone are designed for a single product. Using one table for wheat and another for rice would miss the loading limit the two grains share. Linear programming includes that limit directly and finds the lowest-cost schedule that meets all the rules.
 
-Two-Phase Simplex was used here because Simplex needs a valid starting schedule, called a basic feasible solution. With only upper limits, sending nothing can give us a place to start. Here, sending nothing leaves all 132,000 MT of district demand unmet. Phase I finds a schedule that meets demand and stays within the depot limits. Phase II lowers its cost.
+Two-Phase Simplex was used here because Simplex needs a valid starting schedule, called a basic feasible solution. With only upper limits, sending nothing can give us a place to start. Here, sending nothing leaves all 1,32,000 MT of district demand unmet. Phase I finds a schedule that meets demand and stays within the depot limits. Phase II lowers its cost.
 
 
 \subsection*{2. Converting the Problem into Standard Simplex Form}
@@ -213,7 +213,7 @@ The model was solved using a custom Two-Phase Simplex implementation in \href{ht
 \[
 \min W=\sum_{j,k}a_{jk},
 \]
-with an initial value of 132,000 MT. Successive pivots reduce $W$, while the minimum-ratio test maintains primal feasibility in the augmented problem. After \textbf{28 pivots}, the auxiliary objective reaches $W^*=0$. Since $a_{jk}\ge0$, all artificial variables are zero, establishing a basic feasible solution to the original problem.
+with an initial value of 1,32,000 MT. Successive pivots reduce $W$, while the minimum-ratio test maintains primal feasibility in the augmented problem. After \textbf{28 pivots}, the auxiliary objective reaches $W^*=0$. Since $a_{jk}\ge0$, all artificial variables are zero, establishing a basic feasible solution to the original problem.
 
 \textbf{Phase II. Minimising cost.} The artificial-variable columns are removed, and the original objective $Z=\sum_{i,j,k}c_{ij}x_{ijk}$ is restored. The objective row is adjusted to the current basis, and reduced costs are evaluated to identify eligible entering variables. Pivoting continues until every reduced cost satisfies $\bar c_q\ge-\epsilon$, meeting the optimality condition within the specified tolerance. Phase II requires \textbf{28 additional pivots}, bringing the total to \textbf{56 pivots} and yielding
 \[
@@ -235,7 +235,7 @@ with an initial value of 132,000 MT. Successive pivots reduce $W$, while the min
 \section*{Section 4: The Answer}
 
 \subsection*{1. The Lowest-Cost Monthly Plan}
-The optimal plan meets the monthly demand of 132,000 MT at a total cost of \textbf{\INR 56,982,720.00} (\textbf{\Rs 5.6983 Crore}). The average cost is \textbf{\INR 431.69 per MT}, and total haulage work is \textbf{17.51 Million Tonne-km}.
+The optimal plan meets the monthly demand of 1,32,000 MT at a total cost of \textbf{\INR 5,69,82,720.00} (\textbf{\Rs 5.6983 Crore}). The average cost is \textbf{\INR 431.69 per MT}, and total haulage work is \textbf{1.75131 crore tonne-km}.
 \par Wheat and rice cost the same to ship on a given route. If two depots can exchange equal amounts of wheat and rice for the same district while following all shipment and stock limits, the total cost stays the same.
 
 \vspace{-4pt}
@@ -247,17 +247,17 @@ The optimal plan meets the monthly demand of 132,000 MT at a total cost of \text
 \toprule
 \textbf{Origin Supply Depot} & \textbf{Destination Warehouse} & \textbf{Distance (km)} & \textbf{Wheat (MT)} & \textbf{Rice (MT)} & \textbf{Total Flow (MT)} & \textbf{Unit Cost} & \textbf{Total Cost (INR)} & \textbf{Tonne-km} \\
 \midrule
-\textbf{D1: Sabarmati (Ahmd)} & \textbf{W1: Ahmedabad} & 6.74 & 24,000.0 & 10,000.0 & \textbf{34,000.0} & \INR 116.85 & \INR 3,972,900.00 & 229,160.0 \\
-\textbf{D1: Sabarmati (Ahmd)} & \textbf{W2: Surat} & 257.42 & 3,000.0 & 8,000.0 & \textbf{11,000.0} & \INR 743.55 & \INR 8,179,050.00 & 2,831,620.0 \\
-\textbf{D2: Chhani (Vadodara)} & \textbf{W2: Surat} & 154.88 & 7,000.0 & 0.0 & \textbf{7,000.0} & \INR 487.20 & \INR 3,410,400.00 & 1,084,160.0 \\
-\textbf{D2: Chhani (Vadodara)} & \textbf{W3: Vadodara} & 7.52 & 14,000.0 & 7,000.0 & \textbf{21,000.0} & \INR 118.80 & \INR 2,494,800.00 & 157,920.0 \\
-\textbf{D3: Ghanteshwar (Rajkot)} & \textbf{W2: Surat} & 429.79 & 12,000.0 & 0.0 & \textbf{12,000.0} & \INR 1,174.48 & \INR 14,093,760.00 & 5,157,480.0 \\
-\textbf{D3: Ghanteshwar (Rajkot)} & \textbf{W4: Rajkot} & 8.53 & 13,000.0 & 5,000.0 & \textbf{18,000.0} & \INR 121.32 & \INR 2,183,760.00 & 153,540.0 \\
-\textbf{D4: Gandhidham (Kutch)} & \textbf{W2: Surat} & 564.04 & 0.0 & 4,000.0 & \textbf{4,000.0} & \INR 1,510.10 & \INR 6,040,400.00 & 2,256,160.0 \\
-\textbf{D4: Gandhidham (Kutch)} & \textbf{W5: Banaskantha} & 320.28 & 11,000.0 & 5,000.0 & \textbf{16,000.0} & \INR 900.70 & \INR 14,411,200.00 & 5,124,480.0 \\
-\textbf{D4: Gandhidham (Kutch)} & \textbf{W6: Kutch (Bhuj)} & 57.62 & 6,000.0 & 3,000.0 & \textbf{9,000.0} & \INR 244.05 & \INR 2,196,450.00 & 518,580.0 \\
+\textbf{D1: Sabarmati (Ahmd)} & \textbf{W1: Ahmedabad} & 6.74 & 24,000.0 & 10,000.0 & \textbf{34,000.0} & \INR 116.85 & \INR 39,72,900.00 & 2,29,160.0 \\
+\textbf{D1: Sabarmati (Ahmd)} & \textbf{W2: Surat} & 257.42 & 3,000.0 & 8,000.0 & \textbf{11,000.0} & \INR 743.55 & \INR 81,79,050.00 & 28,31,620.0 \\
+\textbf{D2: Chhani (Vadodara)} & \textbf{W2: Surat} & 154.88 & 7,000.0 & 0.0 & \textbf{7,000.0} & \INR 487.20 & \INR 34,10,400.00 & 10,84,160.0 \\
+\textbf{D2: Chhani (Vadodara)} & \textbf{W3: Vadodara} & 7.52 & 14,000.0 & 7,000.0 & \textbf{21,000.0} & \INR 118.80 & \INR 24,94,800.00 & 1,57,920.0 \\
+\textbf{D3: Ghanteshwar (Rajkot)} & \textbf{W2: Surat} & 429.79 & 12,000.0 & 0.0 & \textbf{12,000.0} & \INR 1,174.48 & \INR 1,40,93,760.00 & 51,57,480.0 \\
+\textbf{D3: Ghanteshwar (Rajkot)} & \textbf{W4: Rajkot} & 8.53 & 13,000.0 & 5,000.0 & \textbf{18,000.0} & \INR 121.32 & \INR 21,83,760.00 & 1,53,540.0 \\
+\textbf{D4: Gandhidham (Kutch)} & \textbf{W2: Surat} & 564.04 & 0.0 & 4,000.0 & \textbf{4,000.0} & \INR 1,510.10 & \INR 60,40,400.00 & 22,56,160.0 \\
+\textbf{D4: Gandhidham (Kutch)} & \textbf{W5: Banaskantha} & 320.28 & 11,000.0 & 5,000.0 & \textbf{16,000.0} & \INR 900.70 & \INR 1,44,11,200.00 & 51,24,480.0 \\
+\textbf{D4: Gandhidham (Kutch)} & \textbf{W6: Kutch (Bhuj)} & 57.62 & 6,000.0 & 3,000.0 & \textbf{9,000.0} & \INR 244.05 & \INR 21,96,450.00 & 5,18,580.0 \\
 \midrule
-\multicolumn{3}{l}{\textbf{MONTHLY TOTAL}} & \textbf{90,000.0} & \textbf{42,000.0} & \textbf{132,000.0} & \textbf{--} & \textbf{\INR 56,982,720.00} & \textbf{17,513,100.0} \\
+\multicolumn{3}{l}{\textbf{MONTHLY TOTAL}} & \textbf{90,000.0} & \textbf{42,000.0} & \textbf{1,32,000.0} & \textbf{--} & \textbf{\INR 5,69,82,720.00} & \textbf{1,75,13,100.0} \\
 \bottomrule
 \end{tabular}
 }
@@ -315,13 +315,13 @@ We solved the model with Chhani's monthly loading limit set to 21,000 through 35
 \toprule
 \textbf{Chhani Cap $C_2$ (MT)} & \textbf{Total Cost (\Rs Cr)} & \textbf{Shadow Price $y_2^*$ (\INR/MT)} & \textbf{Chhani $\to$ Surat (MT)} & \textbf{Sabarmati $\to$ Surat (MT)} & \textbf{Gandhidham $\to$ Surat (MT)} & \textbf{Savings vs Baseline (\INR)} \\
 \midrule
-21,000 & \Rs 6.4143 Cr & \INR 1,022.90 & 0.0 & 11,000.0 & 11,000.0 & -\INR 7,160,300.00 \\
-24,000 & \Rs 6.1074 Cr & \INR 1,022.90 & 3,000.0 & 11,000.0 & 8,000.0 & -\INR 4,091,600.00 \\
+21,000 & \Rs 6.4143 Cr & \INR 1,022.90 & 0.0 & 11,000.0 & 11,000.0 & -\INR 71,60,300.00 \\
+24,000 & \Rs 6.1074 Cr & \INR 1,022.90 & 3,000.0 & 11,000.0 & 8,000.0 & -\INR 40,91,600.00 \\
 \textbf{28,000 (Base)} & \textbf{\Rs 5.6983 Cr} & \textbf{\INR 1,022.90} & \textbf{7,000.0} & \textbf{11,000.0} & \textbf{4,000.0} & \textbf{\INR 0.00} \\
-30,000 & \Rs 5.4937 Cr & \INR 1,022.90 & 9,000.0 & 11,000.0 & 2,000.0 & +\INR 2,045,800.00 \\
-31,000 & \Rs 5.3914 Cr & \INR 1,022.90 & 10,000.0 & 11,000.0 & 1,000.0 & +\INR 3,068,700.00 \\
-32,000 & \Rs 5.2891 Cr & \INR 706.55 & 11,000.0 & 11,000.0 & 0.0 & +\INR 4,091,600.00 \\
-\textbf{34,000 (Break)} & \textbf{\Rs 5.1478 Cr} & \textbf{\INR 706.55 $\to$ 0.00} & \textbf{13,000.0} & \textbf{9,000.0} & \textbf{0.0} & \textbf{+\INR 5,504,700.00} \\
+30,000 & \Rs 5.4937 Cr & \INR 1,022.90 & 9,000.0 & 11,000.0 & 2,000.0 & +\INR 20,45,800.00 \\
+31,000 & \Rs 5.3914 Cr & \INR 1,022.90 & 10,000.0 & 11,000.0 & 1,000.0 & +\INR 30,68,700.00 \\
+32,000 & \Rs 5.2891 Cr & \INR 706.55 & 11,000.0 & 11,000.0 & 0.0 & +\INR 40,91,600.00 \\
+\textbf{34,000 (Break)} & \textbf{\Rs 5.1478 Cr} & \textbf{\INR 706.55 $\to$ 0.00} & \textbf{13,000.0} & \textbf{9,000.0} & \textbf{0.0} & \textbf{+\INR 55,04,700.00} \\
 \bottomrule
 \end{tabular}
 }
@@ -344,7 +344,7 @@ For each extra tonne Chhani sends to Surat, Gandhidham sends one tonne less to S
 \textbf{Step 2 (32,000 to 34,000 MT --- Saving Rs.~706.55 per MT).}
 Chhani takes over another tonne for Surat from Sabarmati, saving Rs.~743.55 minus Rs.~487.20, or Rs.~256.35. Sabarmati can now send a tonne to Banaskantha in place of Gandhidham, saving Rs.~900.70 minus Rs.~450.50, or Rs.~450.20. Together these changes save Rs.~706.55 per tonne. The next 2,000 tonnes save \textbf{Rs.~14,13,100 per month}.
 
-The two steps save \textbf{INR 5,504,700.00 per month} (Rs.~55.05 lakh), or about \textbf{Rs.~6.61 Crore} in a year if the same demand and costs hold. Adding loading capacity beyond 34,000 MT saves nothing because Chhani has no more grain to send.
+The two steps save \textbf{INR 55,04,700.00 per month} (Rs.~55.05 lakh), or about \textbf{Rs.~6.61 Crore} in a year if the same demand and costs hold. Adding loading capacity beyond 34,000 MT saves nothing because Chhani has no more grain to send.
 
 \subsection*{3. What If the Rate per Kilometre Changes?}
 We tested rates from Rs.~1.50 to Rs.~4.00 per tonne-km. Total cost rose roughly in a straight line, and the routes used stayed the same.

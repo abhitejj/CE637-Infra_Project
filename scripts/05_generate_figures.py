@@ -30,6 +30,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyArrowPatch
+from matplotlib.ticker import FuncFormatter
 
 # Configure plotting style
 plt.rcParams.update({
@@ -48,6 +49,19 @@ plt.rcParams.update({
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 os.makedirs("outputs/figures", exist_ok=True)
+
+
+def format_indian_number(value, decimals=0):
+    """Group the final three digits, then pairs, preserving the numeric value."""
+    text = f"{value:.{decimals}f}"
+    sign = "-" if text.startswith("-") else ""
+    integer, dot, fraction = text.lstrip("-").partition(".")
+    groups = [integer[-3:]]
+    remaining = integer[:-3]
+    while remaining:
+        groups.insert(0, remaining[-2:])
+        remaining = remaining[:-2]
+    return sign + ",".join(groups) + dot + fraction
 
 
 def plot_fig1_network_flow_map():
@@ -99,11 +113,11 @@ def plot_fig1_network_flow_map():
     corridor_configs = {
         # Long-haul Surat bypasses
         ("D4", "W2"): {"rad": -0.22, "label_pos": (70.95, 21.55), "text": "4,000 MT\n(W:0 | R:4,000)"},
-        ("D3", "W2"): {"rad": -0.08, "label_pos": (71.85, 21.75), "text": "12,000 MT\n(W:12k | R:0)"},
-        ("D1", "W2"): {"rad": -0.06, "label_pos": (72.60, 21.95), "text": "11,000 MT\n(W:3k | R:8k)"},
-        ("D2", "W2"): {"rad": 0.08,  "label_pos": (73.25, 21.65), "text": "7,000 MT\n(W:7k | R:0)"},
+        ("D3", "W2"): {"rad": -0.08, "label_pos": (71.85, 21.75), "text": "12,000 MT\n(W:12,000 | R:0)"},
+        ("D1", "W2"): {"rad": -0.06, "label_pos": (72.60, 21.95), "text": "11,000 MT\n(W:3,000 | R:8,000)"},
+        ("D2", "W2"): {"rad": 0.08,  "label_pos": (73.25, 21.65), "text": "7,000 MT\n(W:7,000 | R:0)"},
         # Long-haul Banaskantha corridor
-        ("D4", "W5"): {"rad": -0.05, "label_pos": (71.25, 23.70), "text": "16,000 MT\n(W:11k | R:5k)"},
+        ("D4", "W5"): {"rad": -0.05, "label_pos": (71.25, 23.70), "text": "16,000 MT\n(W:11,000 | R:5,000)"},
         # Local short-haul corridors (straight connection)
         ("D1", "W1"): {"rad": 0.0, "label_pos": None, "text": None},
         ("D2", "W3"): {"rad": 0.0, "label_pos": None, "text": None},
@@ -201,7 +215,7 @@ def plot_fig1_network_flow_map():
     # Flow box between D4 and W6
     mid_kutch = ((depot_plot["D4"][0] + wh_plot["W6"][0]) / 2.0, (depot_plot["D4"][1] + wh_plot["W6"][1]) / 2.0)
     ax.annotate(
-        "9,000 MT\n(W:6k | R:3k)",
+        "9,000 MT\n(W:6,000 | R:3,000)",
         xy=mid_kutch,
         xytext=(0, 16),
         textcoords="offset points",
@@ -246,7 +260,7 @@ def plot_fig1_network_flow_map():
     # Local flow box D3 -> W4
     mid_rajkot = ((depot_plot["D3"][0] + wh_plot["W4"][0]) / 2.0, (depot_plot["D3"][1] + wh_plot["W4"][1]) / 2.0)
     ax.annotate(
-        "Local: 18,000 MT\n(W:13k | R:5k)",
+        "Local: 18,000 MT\n(W:13,000 | R:5,000)",
         xy=mid_rajkot,
         xytext=(18, 14),
         textcoords="offset points",
@@ -291,7 +305,7 @@ def plot_fig1_network_flow_map():
     # Local flow box D1 -> W1
     mid_ahmd = ((depot_plot["D1"][0] + wh_plot["W1"][0]) / 2.0, (depot_plot["D1"][1] + wh_plot["W1"][1]) / 2.0)
     ax.annotate(
-        "Local: 34,000 MT\n(W:24k | R:10k)",
+        "Local: 34,000 MT\n(W:24,000 | R:10,000)",
         xy=mid_ahmd,
         xytext=(18, 22),
         textcoords="offset points",
@@ -336,7 +350,7 @@ def plot_fig1_network_flow_map():
     # Local flow box D2 -> W3
     mid_vado = ((depot_plot["D2"][0] + wh_plot["W3"][0]) / 2.0, (depot_plot["D2"][1] + wh_plot["W3"][1]) / 2.0)
     ax.annotate(
-        "Local: 21,000 MT\n(W:14k | R:7k)",
+        "Local: 21,000 MT\n(W:14,000 | R:7,000)",
         xy=mid_vado,
         xytext=(18, 18),
         textcoords="offset points",
@@ -455,7 +469,7 @@ def plot_fig2_depot_utilization():
         stock_x = x[i] - 1.0 * width
         max_stock_bar = max(w_stock, r_stock)
         ax.annotate(
-            f"Total Stock:\n{int(total_stock):,} MT",
+            f"Total Stock:\n{format_indian_number(total_stock)} MT",
             xy=(stock_x, max_stock_bar),
             xytext=(stock_x, max_stock_bar + 2500),
             ha="center",
@@ -482,7 +496,7 @@ def plot_fig2_depot_utilization():
         else:
             buffer_mt = cap - tot_disp
             ax.annotate(
-                f"Spare loading capacity: {int(buffer_mt):,} MT\nSavings per extra MT: {sp_text}",
+                f"Spare loading capacity: {format_indian_number(buffer_mt)} MT\nSavings per extra MT: {sp_text}",
                 xy=(x[i] + 1.5 * width, cap),
                 xytext=(x[i], cap + 3500),
                 ha="center",
@@ -499,13 +513,14 @@ def plot_fig2_depot_utilization():
     ax.set_xticks(x)
     ax.set_xticklabels(depot_labels, fontsize=10, fontweight="bold")
     ax.set_ylim(0, 62000)
+    ax.yaxis.set_major_formatter(FuncFormatter(lambda value, position: format_indian_number(value)))
     ax.grid(axis="y", linestyle="--", alpha=0.4)
     ax.legend(loc="upper right", framealpha=0.95)
 
     # Add data values on top of dispatched bars
     for r in rects3:
         h = r.get_height()
-        ax.annotate(f"{int(h):,} MT", xy=(r.get_x() + r.get_width() / 2, h), xytext=(0, 3), textcoords="offset points", ha="center", va="bottom", fontsize=8, fontweight="bold")
+        ax.annotate(f"{format_indian_number(h)} MT", xy=(r.get_x() + r.get_width() / 2, h), xytext=(0, 3), textcoords="offset points", ha="center", va="bottom", fontsize=8, fontweight="bold")
 
     fig.tight_layout()
     output_path = "outputs/figures/fig2_depot_utilization.png"
@@ -540,6 +555,7 @@ def plot_fig3_sensitivity_curve(*, shadow_price=False):
     line1 = ax1.plot(c2_caps, cost_crores, color=color1, marker="o", lw=2.4, markersize=6, label="Total System Cost $Z^*$ (INR Cr)")
     ax1.tick_params(axis="y", labelcolor=color1)
     ax1.set_ylim(5.0, 6.6)
+    ax1.xaxis.set_major_formatter(FuncFormatter(lambda value, position: format_indian_number(value)))
     ax1.grid(True, linestyle="--", alpha=0.4)
 
     # Secondary axis for shadow price
@@ -549,6 +565,7 @@ def plot_fig3_sensitivity_curve(*, shadow_price=False):
     line2 = ax2.step(c2_caps, sp_vals, where="post", color=color2, lw=2.2, linestyle="-", marker="s", markersize=5, label=savings_label)
     ax2.tick_params(axis="y", labelcolor=color2)
     ax2.set_ylim(0, 1200)
+    ax2.yaxis.set_major_formatter(FuncFormatter(lambda value, position: format_indian_number(value)))
 
     # Baseline reference line at C_2 = 28,000 MT
     ax1.axvline(x=28000, color="#666666", linestyle=":", lw=1.8, label="Baseline Capacity ($C_2 = 28,000$ MT)")

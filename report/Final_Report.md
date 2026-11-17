@@ -11,7 +11,7 @@
 <!-- PAGE BREAK: PAGE 1 -->
 # Page 1 — Section 1: The Question (Weight: 20%)
 
-At the beginning of each month, the General Manager (Logistics & Movement) at the Food Corporation of India (FCI) Gujarat Regional Office, in coordination with the Managing Director of the Gujarat State Civil Supplies Corporation Limited (GSCSCL), must decide how wheat and rice should move from storage depots to district warehouses so that households can receive their food grains through the public distribution system under the National Food Security Act (NFSA). In the Gujarat network considered in this study, grain is available at four depots: Sabarmati, Chhani, Ghanteshwar, and Gandhidham, and must be delivered to six districts: Ahmedabad, Surat, Vadodara, Rajkot, Banaskantha, and Kutch. Together, these districts require 132,000 metric tonnes (MT) per month, comprising 90,000 MT of wheat and 42,000 MT of rice. Sending each district's requirement from its nearest depot may seem the obvious choice, but the nearest depot cannot always load enough grain. For example, Chhani can dispatch only 28,000 MT per month, while nearby Vadodara and Surat together require 55,000 MT, so other depots must help meet their demand. Those additional shipments may travel farther and increase the transport bill. The planner must also keep track of wheat and rice separately: spare rice cannot replace a wheat requirement, yet both commodities compete for the same loading facilities. The challenge is therefore to decide how many tonnes of wheat and rice to send along each of the 24 depot-to-district routes so that every district receives its full monthly requirement at the lowest total transport and handling cost, without exceeding any depot's available stock or loading capacity.
+At the beginning of each month, the General Manager (Logistics & Movement) at the Food Corporation of India (FCI) Gujarat Regional Office, in coordination with the Managing Director of the Gujarat State Civil Supplies Corporation Limited (GSCSCL), must decide how wheat and rice should move from storage depots to district warehouses so that households can receive their food grains through the public distribution system under the National Food Security Act (NFSA). In the Gujarat network considered in this study, grain is available at four depots: Sabarmati, Chhani, Ghanteshwar, and Gandhidham, and must be delivered to six districts: Ahmedabad, Surat, Vadodara, Rajkot, Banaskantha, and Kutch. Together, these districts require 1,32,000 metric tonnes (MT) per month, comprising 90,000 MT of wheat and 42,000 MT of rice. Sending each district's requirement from its nearest depot may seem the obvious choice, but the nearest depot cannot always load enough grain. For example, Chhani can dispatch only 28,000 MT per month, while nearby Vadodara and Surat together require 55,000 MT, so other depots must help meet their demand. Those additional shipments may travel farther and increase the transport bill. The planner must also keep track of wheat and rice separately: spare rice cannot replace a wheat requirement, yet both commodities compete for the same loading facilities. The challenge is therefore to decide how many tonnes of wheat and rice to send along each of the 24 depot-to-district routes so that every district receives its full monthly requirement at the lowest total transport and handling cost, without exceeding any depot's available stock or loading capacity.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -20,22 +20,22 @@ At the beginning of each month, the General Manager (Logistics & Movement) at th
          [FCI DIVISIONAL SUPPLY DEPOTS]                      [GSCSCL DISTRICT WAREHOUSES]
     ┌──────────────────────────────────────┐            ┌──────────────────────────────────────┐
     │ D1: FSD Sabarmati (Ahmedabad)        │───────────>│ W1: Central Godown (Aslali / Sarkhej)│
-    │     Stock: 35k W | 18k R | Cap: 45k  │───┐    ┌──>│     Demand: 24k W | 10k R (34k MT)   │
+    │     Stock: 35,000 W | 18,000 R | Cap: 45,000  │───┐    ┌──>│     Demand: 24,000 W | 10,000 R (34,000 MT)   │
     ├──────────────────────────────────────┤   │    │   ├──────────────────────────────────────┤
     │ D2: FSD Chhani (Vadodara)            │───┼────┼──>│ W2: District Godown (Sachin / Udhna) │
-    │     Stock: 22k W | 12k R | Cap: 28k  │───┼────┤   │     Demand: 22k W | 12k R (34k MT)   │
+    │     Stock: 22,000 W | 12,000 R | Cap: 28,000  │───┼────┤   │     Demand: 22,000 W | 12,000 R (34,000 MT)   │
     ├──────────────────────────────────────┤   │    │   ├──────────────────────────────────────┤
     │ D3: FSD Ghanteshwar (Rajkot)         │───┼────┼──>│ W3: District Godown (Makarpura GIDC) │
-    │     Stock: 25k W | 10k R | Cap: 30k  │───┼────┤   │     Demand: 14k W |  7k R (21k MT)   │
+    │     Stock: 25,000 W | 10,000 R | Cap: 30,000  │───┼────┤   │     Demand: 14,000 W |  7,000 R (21,000 MT)   │
     ├──────────────────────────────────────┤   │    │   ├──────────────────────────────────────┤
     │ D4: FSD Gandhidham (Kutch)           │───┼────┼──>│ W4: District Godown (Aji GIDC)       │
-    │     Stock: 30k W | 15k R | Cap: 38k  │───┘    │   │     Demand: 13k W |  5k R (18k MT)   │
+    │     Stock: 30,000 W | 15,000 R | Cap: 38,000  │───┘    │   │     Demand: 13,000 W |  5,000 R (18,000 MT)   │
     └──────────────────────────────────────┘        │   ├──────────────────────────────────────┤
              Shared Truck Loading Bays              ├──>│ W5: District Godown (Palanpur Highway)│
-             & Throughput Handling Caps             │   │     Demand: 11k W |  5k R (16k MT)   │
+             & Throughput Handling Caps             │   │     Demand: 11,000 W |  5,000 R (16,000 MT)   │
              Force Wheat-Rice Competition           │   ├──────────────────────────────────────┤
                                                     └──>│ W6: District Godown (Bhuj Mandi)     │
-                                                        │     Demand:  6k W |  3k R ( 9k MT)   │
+                                                        │     Demand:  6,000 W |  3,000 R ( 9,000 MT)   │
                                                         └──────────────────────────────────────┘
 ```
 
@@ -53,7 +53,7 @@ At the beginning of each month, the General Manager (Logistics & Movement) at th
 | **W5** | Banaskantha Godown (Palanpur) | Banaskantha | Demand Sink | 24.1724°N | 72.4346°E | 11,000 | 5,000 | 16,000 (Total Demand) |
 | **W6** | Kutch District Godown (Bhuj) | Kutch | Demand Sink | 23.2420°N | 69.6669°E | 6,000 | 3,000 | 9,000 (Total Demand) |
 
-**Empirical Grounding and Data Governance**: The optimization model is grounded in verified administrative, spatial, and statutory datasets from Gujarat's public food grain distribution system. Supply origins represent four real-world FCI divisional railhead hubs (FSD Sabarmati, FSD Chhani, FSD Ghanteshwar, and FSD Gandhidham), each maintaining direct rail siding connectivity (`SGFG` siding codes) and staging bulk central rake arrivals. Demand sinks represent central GSCSCL buffer godowns across six major industrial and consumption centers. Line-haul driving distances and transit durations are retrieved from Open Source Routing Machine (OSRM) highway network graphs, reflecting actual road transit routes for commercial carriers. Monthly district demand volumes (132,000 MT total: 90,000 MT Wheat and 42,000 MT Rice) are calibrated directly from statutory priority household quotas under the NFSA (2013) (5 kg/person/month) and state e-PoS distribution off-take records published by the Directorate of Food & Civil Supplies, Gujarat. Depot dispatch capacities ($C_i$) reflect physical dock handling limits (loading bays and 60 MT weighbridge cycle times) that constrain aggregate grain throughput below static warehouse capacity, creating direct operational competition between wheat and rice dispatches. Line-haul freight and terminal handling cost parameters ($\alpha = \text{₹}100/\text{MT}$, $\beta = \text{₹}2.50/\text{MT-km}$) are calibrated to prevailing FCI Handling & Transport Contractor tender rates in the Gujarat Region. Full source documentation is registered in `data/source_register.csv`.
+**Empirical Grounding and Data Governance**: The optimization model is grounded in verified administrative, spatial, and statutory datasets from Gujarat's public food grain distribution system. Supply origins represent four real-world FCI divisional railhead hubs (FSD Sabarmati, FSD Chhani, FSD Ghanteshwar, and FSD Gandhidham), each maintaining direct rail siding connectivity (`SGFG` siding codes) and staging bulk central rake arrivals. Demand sinks represent central GSCSCL buffer godowns across six major industrial and consumption centers. Line-haul driving distances and transit durations are retrieved from Open Source Routing Machine (OSRM) highway network graphs, reflecting actual road transit routes for commercial carriers. Monthly district demand volumes (1,32,000 MT total: 90,000 MT Wheat and 42,000 MT Rice) are calibrated directly from statutory priority household quotas under the NFSA (2013) (5 kg/person/month) and state e-PoS distribution off-take records published by the Directorate of Food & Civil Supplies, Gujarat. Depot dispatch capacities ($C_i$) reflect physical dock handling limits (loading bays and 60 MT weighbridge cycle times) that constrain aggregate grain throughput below static warehouse capacity, creating direct operational competition between wheat and rice dispatches. Line-haul freight and terminal handling cost parameters ($\alpha = \text{₹}100/\text{MT}$, $\beta = \text{₹}2.50/\text{MT-km}$) are calibrated to prevailing FCI Handling & Transport Contractor tender rates in the Gujarat Region. Full source documentation is registered in `data/source_register.csv`.
 ---
 
 <!-- PAGE BREAK: PAGE 2 -->
@@ -124,17 +124,17 @@ To convert the system into the standard canonical Simplex form $A x_{\text{all}}
 $$\text{Total Columns} = 48 \text{ (Primal)} + 12 \text{ (Slacks)} + 12 \text{ (Surplus)} + 12 \text{ (Artificial)} = \mathbf{84 \text{ variables}}$$
 $$\text{Total Equality Rows} = 8 \text{ (Supply)} + 4 \text{ (Dispatch)} + 12 \text{ (Demand)} = \mathbf{24 \text{ linear equations}}$$
 
-The full initial tableau has 25 rows and 85 columns, including objective and RHS; Phase II has 25 rows and 73 columns after dropping artificials. The canonical Phase I reduced-cost row has −1 on all 48 shipment columns, zero on slacks and artificials, +1 on surpluses, and RHS −132,000. Phase II uses reduced costs after subtracting the current basic costs from the original cost row; slack and surplus reduced costs need not be zero.
+The full initial tableau has 25 rows and 85 columns, including objective and RHS; Phase II has 25 rows and 73 columns after dropping artificials. The canonical Phase I reduced-cost row has −1 on all 48 shipment columns, zero on slacks and artificials, +1 on surpluses, and RHS −1,32,000. Phase II uses reduced costs after subtracting the current basic costs from the original cost row; slack and surplus reduced costs need not be zero.
 
 
 ### 3. Algorithmic Convergence & Telemetry (`solver_diagnostics.json`)
 The custom Two-Phase Simplex algorithm was executed with Bland's Anti-Cycling Rule and strict $\epsilon = 10^{-9}$ numerical zero tolerances:
-* **Phase I Execution**: Started with artificial infeasibility $W = 132,000\text{ MT}$. Successfully drove $W \to 0.000000$ in **28 pivot iterations**, discovering a degenerate basic feasible vertex.
+* **Phase I Execution**: Started with artificial infeasibility $W = 1,32,000\text{ MT}$. Successfully drove $W \to 0.000000$ in **28 pivot iterations**, discovering a degenerate basic feasible vertex.
 * **Phase II Transition**: All 12 artificial columns were purged. The real cost vector was canonicalized against the basic variables.
 * **Phase II Execution**: Commenced from the initial feasible vertex and reached the global cost-minimizing basis in **28 pivot iterations**.
 * **Total Simplex Work**: **56 pivot iterations**.
 * **Cross-Solver Benchmark**: Verified head-to-head against SciPy HiGHS (`method='highs-ds'`). Both solvers arrived at the same objective value within numerical tolerance:
-  $$Z^*_{\text{Custom Simplex}} = \text{INR } 56,982,720.00 \quad \longleftrightarrow \quad Z^*_{\text{SciPy HiGHS}} = \text{INR } 56,982,720.00$$
+  $$Z^*_{\text{Custom Simplex}} = \text{INR } 5,69,82,720.00 \quad \longleftrightarrow \quad Z^*_{\text{SciPy HiGHS}} = \text{INR } 5,69,82,720.00$$
   $$\text{Absolute Numerical Discrepancy} = \mathbf{0.000000 \text{ INR (Exact Machine-Precision Match)}}$$
 
 ---
@@ -143,7 +143,7 @@ The custom Two-Phase Simplex algorithm was executed with Bland's Anti-Cycling Ru
 # Page 4 — Section 4: The Answer (Weight: 20%)
 
 ### 1. Recommended Optimal Monthly Dispatch Plan
-The cost-minimizing distribution schedule satisfies 100% of the 132,000 MT assumed monthly scenario requirement:
+The cost-minimizing distribution schedule satisfies 100% of the 1,32,000 MT assumed monthly scenario requirement:
 
 ### Table 4.1: Optimal Commodity Dispatch Allocation Matrix
 | Origin Supply Depot | Destination Warehouse | Distance | Wheat (MT) | Rice (MT) | Total Flow (MT) | Unit Cost | Total Expenditure (INR) | Tonne-km |
@@ -157,11 +157,11 @@ The cost-minimizing distribution schedule satisfies 100% of the 132,000 MT assum
 | **D4: Gandhidham (Kutch)** | **W2: Surat** | 564.04 km | 0.0 | 4,000.0 | **4,000.0** | ₹1,510.10 | ₹60,40,400.00 | 22,56,160.0 |
 | **D4: Gandhidham (Kutch)** | **W5: Banaskantha** | 320.28 km | 11,000.0 | 5,000.0 | **16,000.0** | ₹900.70 | ₹1,44,11,200.00 | 51,24,480.0 |
 | **D4: Gandhidham (Kutch)** | **W6: Kutch (Bhuj)** | 57.62 km | 6,000.0 | 3,000.0 | **9,000.0** | ₹244.05 | ₹21,96,450.00 | 5,18,580.0 |
-| **STATEWIDE TOTAL** | | | **90,000.0** | **42,000.0** | **132,000.0** | | **₹5,69,82,720.00** | **1,75,13,100.0** |
+| **STATEWIDE TOTAL** | | | **90,000.0** | **42,000.0** | **1,32,000.0** | | **₹5,69,82,720.00** | **1,75,13,100.0** |
 
-* **Total Monthly System Logistics Cost**: **INR 56,982,720.00** (**₹5.6983 Crore**).
+* **Total Monthly System Logistics Cost**: **INR 5,69,82,720.00** (**₹5.6983 Crore**).
 * **Average Unit Delivery Cost**: **₹431.69 per MT** (₹43.17 per quintal).
-* **Total Transportation Work**: **17,513,100 Tonne-Kilometers** (Average lead distance: **132.7 km**).
+* **Total Transportation Work**: **1,75,13,100 Tonne-Kilometers** (Average lead distance: **132.7 km**).
 
 The dispatch table reports the **selected HiGHS optimum**; the custom solver can select a different commodity split at the same cost. A wheat/rice exchange preserves cost only when nonnegativity, depot commodity stocks, district demands and dispatch capacities remain feasible.
 
@@ -174,7 +174,7 @@ The dispatch table reports the **selected HiGHS optimum**; the custom solver can
 
 ### 3. Operational Analysis of Bottlenecks & The Surat Deficit Split
 1. **Local Proximity Dominance**: In Ahmedabad (W1), Vadodara (W3), Rajkot (W4), and Kutch (W6), 100% of demand is fulfilled by the immediately adjacent divisional depot at low unit cost (₹116.85 to ₹244.05/MT).
-2. **The Surat Deficit Crisis**: Surat (W2) has assumed demand of 34,000 MT (22k Wheat + 12k Rice); this selected model includes no Surat supply node. Nearest depot FSD Chhani ($d=154.9\text{ km}$) has a monthly dispatch cap of 28,000 MT, of which 21,000 MT must serve local Vadodara demand. Thus, Chhani can only supply **7,000 MT** to Surat before hitting its 100% binding capacity limit.
+2. **The Surat Deficit Crisis**: Surat (W2) has assumed demand of 34,000 MT (22,000 Wheat + 12,000 Rice); this selected model includes no Surat supply node. Nearest depot FSD Chhani ($d=154.9\text{ km}$) has a monthly dispatch cap of 28,000 MT, of which 21,000 MT must serve local Vadodara demand. Thus, Chhani can only supply **7,000 MT** to Surat before hitting its 100% binding capacity limit.
 3. **Four-Way Corridor Split**: To cover Surat's remaining 27,000 MT deficit, the optimizer exhausts surplus dispatch capacity across the selected depots:
    - **11,000 MT** from Sabarmati ($d=257.4\text{ km}$, exhausting D1's 45,000 MT cap).
    - **12,000 MT** from Ghanteshwar ($d=429.8\text{ km}$, exhausting D3's 30,000 MT cap).
@@ -199,7 +199,7 @@ We vary the assumed Chhani dispatch limit ($C_2$) as the selected sensitivity ch
 | 32,000 | ₹5.2891 Cr | ₹706.55 | 11,000.0 | 11,000.0 | 0.0 | +₹40,91,600.00 |
 | **34,000 (Break)**| **₹5.1478 Cr** | **₹706.55** | **13,000.0** | **9,000.0** | **0.0** | **+₹55,04,700.00** |
 
-At 32,000 and 34,000 MT the table shows the solver-selected dual magnitude; one-sided marginal savings can differ. At 35,000 MT, cost remains ₹51,478,020 and the dispatch-cap dual is zero.
+At 32,000 and 34,000 MT the table shows the solver-selected dual magnitude; one-sided marginal savings can differ. At 35,000 MT, cost remains ₹5,14,78,020 and the dispatch-cap dual is zero.
 
 ![Sensitivity Curve](../outputs/figures/fig3_sensitivity_curve.png)
 *Figure 5.1: Impact of expanding FSD Chhani dispatch capacity ($C_2$) on total monthly logistics cost and marginal shadow price.*
@@ -211,7 +211,7 @@ At 32,000 and 34,000 MT the table shows the solver-selected dual magnitude; one-
 4. **Conditional planning implication**: Expansion from 28,000 to 34,000 MT reduces modeled logistics costs by **₹55.05 lakh/month (₹6.61 crore/year)** if these assumptions hold. No construction cost, achievable capacity gain or project payback has been established.
 
 ### 3. Secondary Sensitivity: Fuel Price / Freight Rate Volatility ($\beta \in [1.50, 4.00]$)
-The sampled rates preserve **aggregate route flows**; this does not establish an identical simplex basis or commodity split. Without route-rate rounding, $Z^*(\beta)=₹1.32\text{ Cr}+1.75131\text{ Cr}\cdot\beta$ for positive rates. The implemented two-decimal route rates produce small departures: at $\beta=2.50$ the formula gives ₹56,982,750, versus the implemented ₹56,982,720 (₹30 lower). A change in this assumed freight coefficient is not a measured diesel-price response.
+The sampled rates preserve **aggregate route flows**; this does not establish an identical simplex basis or commodity split. Without route-rate rounding, $Z^*(\beta)=₹1.32\text{ Cr}+1.75131\text{ Cr}\cdot\beta$ for positive rates. The implemented two-decimal route rates produce small departures: at $\beta=2.50$ the formula gives ₹5,69,82,750, versus the implemented ₹5,69,82,720 (₹30 lower). A change in this assumed freight coefficient is not a measured diesel-price response.
 
 ---
 

@@ -72,7 +72,7 @@
       {\color{accentgold}\rule{\linewidth}{1.2pt}}\\[6pt]
       \small
 
-      To ensure monthly NFSA food security across Gujarat, the \textbf{General Manager (Logistics \& Movement), FCI Gujarat RO}, in coordination with the \textbf{Managing Director, GSCSCL}, must determine the optimal allocation of wheat and rice from 4 railhead depots to 6 district warehouses (132,000 MT total monthly demand) across 24 candidate highway corridors at minimum logistics and handling expenditure.\\[4pt]
+      To ensure monthly NFSA food security across Gujarat, the \textbf{General Manager (Logistics \& Movement), FCI Gujarat RO}, in coordination with the \textbf{Managing Director, GSCSCL}, must determine the optimal allocation of wheat and rice from 4 railhead depots to 6 district warehouses (1,32,000 MT total monthly demand) across 24 candidate highway corridors at minimum logistics and handling expenditure.\\[4pt]
       \textbf{Linear Freight Optimization Model:} For each route, freight cost scales linearly with road distance. Total system expenditure is minimized across all 48 shipment variables ($x_{ijk} \ge 0$):\par\vspace{2pt}
       \noindent\colorbox{kpibg}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{
         \vspace{-3pt}
@@ -83,8 +83,8 @@
       }}\par\vspace{3pt}
       The allocation plan is constrained by 24 linear operational inequalities:
       \begin{itemize}\setlength{\itemsep}{1.5pt}\setlength{\parskip}{0pt}\small
-        \item \textbf{Meet district demand (12):} $\sum_{i=1}^4 x_{ijk} \ge D_{jk} \quad \forall j, k$ \quad (90,000 MT Wheat + 42,000 MT Rice = 132,000 MT)
-        \item \textbf{Stay within depot stock (8):} $\sum_{j=1}^6 x_{ijk} \le S_{ik} \quad \forall i, k$ \quad (Total Physical Stock: 112k MT Wheat + 55k MT Rice)
+        \item \textbf{Meet district demand (12):} $\sum_{i=1}^4 x_{ijk} \ge D_{jk} \quad \forall j, k$ \quad (90,000 MT Wheat + 42,000 MT Rice = 1,32,000 MT)
+        \item \textbf{Stay within depot stock (8):} $\sum_{j=1}^6 x_{ijk} \le S_{ik} \quad \forall i, k$ \quad (Total Physical Stock: 1,12,000 MT Wheat + 55,000 MT Rice)
         \item \textbf{Depot handling capacity (4):} $\sum_{k=1}^2 \sum_{j=1}^6 x_{ijk} \le C_i \quad \forall i$ \quad (Shared truck bays \& weighbridge limits)
       \end{itemize}
       \vspace{2pt}
@@ -111,7 +111,7 @@
         \setlength{\tabcolsep}{2pt}
 
         \begin{tabularx}{\linewidth}{@{}*{4}{>{\centering\arraybackslash}X}@{}}
-          \textbf{\large\color{headerblue}132,000 MT} &
+          \textbf{\large\color{headerblue}1,32,000 MT} &
           \textbf{\large\color{headerblue}\Rs 5.70 crore} &
           \textbf{\large\color{headerblue}\INR 431.69} &
           \textbf{\large\color{headerblue}132.7 km} \\
@@ -120,7 +120,7 @@
           \footnotesize Cost per tonne &
           \footnotesize Average distance \\
           \scriptsize 90,000 wheat + 42,000 rice &
-          \scriptsize \INR 56,982,720.00 &
+          \scriptsize \INR 5,69,82,720.00 &
           \scriptsize \INR 43.17 per quintal &
           \scriptsize Weighted by tonnes sent \\
         \end{tabularx}
@@ -146,7 +146,7 @@
         D4 Gandhidham & W5 Banaskantha & 320.3 km & 900.70 & 11,000 & 5,000 & \textbf{16,000} \\
         D4 Gandhidham & W6 Kutch (Bhuj) & 57.6 km & 244.05 & 6,000 & 3,000 & \textbf{9,000} \\
         \midrule
-        \multicolumn{4}{@{}l}{\textbf{Monthly Total}} & \textbf{90,000} & \textbf{42,000} & \textbf{132,000} \\
+        \multicolumn{4}{@{}l}{\textbf{Monthly Total}} & \textbf{90,000} & \textbf{42,000} & \textbf{1,32,000} \\
         \bottomrule
       \end{tabularx}
 

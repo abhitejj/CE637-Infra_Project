@@ -13,9 +13,9 @@ Audits:
    - Page 7: References Page
 4. Exact Sentence Constraint: Section 6 must contain EXACTLY THREE sentences.
 5. Numerical consistency between LaTeX/Markdown reports and Phase 3 solver outputs:
-   - Z* = 56,982,720.00 INR
+   - Z* = 5,69,82,720.00 INR
    - Average cost = 431.69 INR/MT
-   - Tonne-km = 17,513,100
+   - Tonne-km = 1,75,13,100
    - Reported pivots match the executed solver diagnostics
    - Chhani shadow price = 1022.90 INR/MT
    - Saturation breakpoint = 34,000 MT
@@ -24,6 +24,7 @@ Audits:
 import json
 import os
 import re
+import runpy
 import unittest
 import pypdf
 import pandas as pd
@@ -119,24 +120,25 @@ class TestPhase4Deliverables(unittest.TestCase):
         self.assertEqual(tonne_km, 17513100.0)
 
         # Check in LaTeX content
-        self.assertIn("56,982,720.00", self.tex_content)
+        self.assertIn("5,69,82,720.00", self.tex_content)
         self.assertIn("431.69", self.tex_content)
-        self.assertIn("17.51 Million Tonne-km", self.tex_content)
+        self.assertIn("1,75,13,100", self.tex_content)
+        self.assertNotRegex(self.tex_content, r"(?i)\bmillion\b")
         self.assertIn(f"{piv_1} pivots", self.tex_content)
         self.assertIn(f"{piv_2} additional pivots", self.tex_content)
         self.assertIn(f"{total_piv} pivots", self.tex_content)
 
         # Check in Markdown content
-        self.assertIn("56,982,720.00", self.md_content)
+        self.assertIn("5,69,82,720.00", self.md_content)
         self.assertIn("431.69", self.md_content)
-        self.assertIn("17,513,100", self.md_content)
+        self.assertIn("1,75,13,100", self.md_content)
 
     def test_06_sensitivity_numbers_consistent(self):
         # Chhani shadow price 1022.90 and breakpoint at 34,000 MT
         self.assertIn("1,022.90", self.tex_content)
         self.assertIn("706.55", self.tex_content)
         self.assertIn("34,000", self.tex_content)
-        self.assertIn("5,504,700.00", self.tex_content)
+        self.assertIn("55,04,700.00", self.tex_content)
         self.assertIn("6.61 Crore", self.tex_content)
 
     def test_07_images_exist_and_embedded(self):
@@ -195,8 +197,8 @@ class TestPhase4Deliverables(unittest.TestCase):
         self.assertEqual(len(self.poster_reader.pages), 1)
         page = self.poster_reader.pages[0]
         poster_text = re.sub(r'\s+', '', page.extract_text()).lower()
-        self.assertIn('132,000', poster_text)
-        self.assertIn('56,982,720', poster_text)
+        self.assertIn('1,32,000', poster_text)
+        self.assertIn('5,69,82,720', poster_text)
         self.assertIn('surat', poster_text)
         self.assertIn('chhani', poster_text)
 
@@ -210,6 +212,21 @@ class TestPhase4Deliverables(unittest.TestCase):
             self.assertIn(heading, self.tex_content)
         for obsolete_heading in ('Algorithmic Convergence Telemetry', 'Stationary Monthly Planning', 'Affine Haulage Cost \\& Fleet Homogeneity'):
             self.assertNotIn(obsolete_heading, self.tex_content)
+
+    def test_13_indian_figure_number_formatting(self):
+        formatter = runpy.run_path('scripts/05_generate_figures.py')['format_indian_number']
+        cases = [
+            (0, 0, '0'), (999, 0, '999'), (1000, 0, '1,000'),
+            (100000, 0, '1,00,000'), (1000000, 0, '10,00,000'),
+            (10000000, 0, '1,00,00,000'),
+            (56982720, 2, '5,69,82,720.00'),
+            (-5504700.5, 2, '-55,04,700.50'),
+        ]
+        for value, decimals, expected in cases:
+            with self.subTest(value=value, decimals=decimals):
+                formatted = formatter(value, decimals)
+                self.assertEqual(formatted, expected)
+                self.assertEqual(float(formatted.replace(',', '')), value)
 
 if __name__ == "__main__":
     unittest.main()
