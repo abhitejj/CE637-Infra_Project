@@ -44,7 +44,7 @@
       \color{white}
       {\fontsize{22pt}{26pt}\selectfont \textbf{Optimisation of Food Grain Distribution in Gujarat:}}\\[4pt]
       {\fontsize{15pt}{18pt}\selectfont \textbf{Moving Wheat and Rice from FCI Depots to District Warehouses}}\\[4pt]
-      {\fontsize{11pt}{13pt}\selectfont \textbf{\color{accentgold}CE 637 Infrastructure Systems: Planning and Management --- Course Project}}
+      {\fontsize{11pt}{13pt}\selectfont \textbf{\color{accentgold}Course Project (CE 637 Infrastructure Systems: Planning and Management)}}
     \end{minipage}\hfill
     \begin{minipage}[c]{0.26\linewidth}
       \color{white}\raggedleft
@@ -89,8 +89,8 @@
       \end{itemize}
       \vspace{2pt}
 
-      \textbf{Shared Handling Bottleneck.} Depot dispatch capacity is tighter than physical stock across all depots ($C_i < S_{i1} + S_{i2}$). At FSD Chhani, 34,000 MT is stocked but only 28,000 MT can be loaded monthly, coupling wheat and rice into direct competition.\\[4pt]
-      \textbf{Algorithmic Solution.} A custom Two-Phase Simplex solver was implemented with Bland's anti-cycling rule to clear initial demand infeasibility. The solver converged in exactly \textbf{56 pivots} (\textbf{Phase I: 28 pivots} to feasibility, \textbf{Phase II: 28 pivots} to optimality), matching SciPy HiGHS dual simplex (\texttt{highs-ds}) machine-precision cost (\textbf{\Rs 5.70 crore}).
+      \textbf{Shared Handling Bottleneck:} Depot dispatch capacity is tighter than physical stock across all depots ($C_i < S_{i1} + S_{i2}$). At FSD Chhani, 34,000 MT is stocked but only 28,000 MT can be loaded monthly, coupling wheat and rice into direct competition.\\[4pt]
+      \textbf{Algorithmic Solution:} A custom Two-Phase Simplex solver was implemented with Bland's anti-cycling rule to clear initial demand infeasibility. The solver converged in exactly \textbf{56 pivots} (\textbf{Phase I: 28 pivots} to feasibility, \textbf{Phase II: 28 pivots} to optimality), matching SciPy HiGHS dual simplex (\texttt{highs-ds}) machine-precision cost (\textbf{\Rs 5.70 crore}).
     };
   \end{tikzpicture}
 
@@ -153,7 +153,7 @@
       \vspace{5pt}
       \raggedright \small
 
-      \textbf{\color{alertred}Why Surat needs grain from all four depots.}
+      \textbf{\color{alertred}Why Surat needs grain from all four depots:}
       Surat needs 34,000 MT and has no supply depot in this model. Chhani is about 155 km away. After sending 21,000 MT to Vadodara, it has room to load 7,000 MT for Surat. Sabarmati sends 11,000 MT, Ghanteshwar sends 12,000 MT and Gandhidham sends 4,000 MT from 564 km away.
     };
   \end{tikzpicture}
@@ -196,9 +196,9 @@
 
         \textbf{\color{headerblue}Two steps to lower monthly costs}
         \begin{itemize}\setlength{\itemsep}{3pt}\setlength{\parskip}{0pt}\small
-          \item \textbf{Step 1 (28,000 to 32,000 MT).}
+          \item \textbf{Step 1 (28,000 to 32,000 MT):}
           Chhani replaces Gandhidham's shipments to Surat. Each tonne saves Rs.~1,510.10 minus Rs.~487.20, or \textbf{Rs.~1,022.90}. Over 4,000 MT, that saves \textbf{Rs.~40,91,600}.
-          \item \textbf{Step 2 (32,000 to 34,000 MT).}
+          \item \textbf{Step 2 (32,000 to 34,000 MT):}
           Chhani takes over more of Surat's demand from Sabarmati, which can then replace Gandhidham in Banaskantha. The two changes save Rs.~256.35 and Rs.~450.20 per tonne, or \textbf{Rs.~706.55} together. Over 2,000 MT, that saves \textbf{Rs.~14,13,100}.
           \item Beyond 34,000 MT, more loading capacity saves nothing because Chhani has no more grain to send.
         \end{itemize}
