@@ -45,7 +45,7 @@
 \vspace{6pt}
 
 \section*{Section 1: The Question}
-At the beginning of each month, the General Manager (Logistics \& Movement) at the Food Corporation of India (FCI) Gujarat Regional Office, in coordination with the Managing Director of the Gujarat State Civil Supplies Corporation Limited (GSCSCL), must decide how wheat and rice should move from storage depots to district warehouses so that households can receive their food grains through the public distribution system under the National Food Security Act (NFSA). In the simplified Gujarat network considered in this study, grain is available at four depots : Sabarmati, Chhani, Ghanteshwar and Gandhidham, and must be delivered to six districts: Ahmedabad, Surat, Vadodara, Rajkot, Banaskantha and Kutch. Together, these districts require 132,000 metric tonnes (MT) per month, comprising 90,000 MT of wheat and 42,000 MT of rice. Sending each district's requirement from its nearest depot may seem the obvious choice, but the nearest depot cannot always load enough grain. For example, Chhani can dispatch only 28,000 MT per month, while nearby Vadodara and Surat together require 55,000 MT, so other depots must help meet their demand. Those additional shipments may travel farther and increase the transport bill. The planner must track wheat and rice separately. Spare rice cannot fill a wheat order, and both grains use the same loading facilities. The challenge is therefore to decide how many tonnes of wheat and rice to send along each of the 24 depot-to-district routes so that every district receives its full monthly requirement at the lowest total transport and handling cost, without exceeding any depot's available stock or loading capacity.
+At the beginning of each month, the General Manager (Logistics \& Movement) at the Food Corporation of India (FCI) Gujarat Regional Office, in coordination with the Managing Director of the Gujarat State Civil Supplies Corporation Limited (GSCSCL), must decide how wheat and rice should move from storage depots to district warehouses so that households can receive their food grains through the public distribution system under the National Food Security Act (NFSA). In the simplified Gujarat network considered in this study, grain is available at four depots : Sabarmati, Chhani, Ghanteshwar and Gandhidham, and must be delivered to six districts: Ahmedabad, Surat, Vadodara, Rajkot, Banaskantha and Kutch. Together, these districts require 132,000 metric tonnes (MT) per month, comprising 90,000 MT of wheat and 42,000 MT of rice. Sending each district's requirement from its nearest depot may seem the obvious choice, but the nearest depot cannot always load enough grain. For example, Chhani can dispatch only 28,000 MT per month, while nearby Vadodara and Surat together require 55,000 MT, so other depots must help meet their demand. Those additional shipments may travel farther and increase the transport bill. The planner must track wheat and rice separately. Spare rice cannot fill a wheat order, and both grains use the same loading facilities. \textbf{The challenge is therefore to decide how many tonnes of wheat and rice to send along each of the 24 depot-to-district routes so that every district receives its full monthly requirement at the lowest total transport and handling cost, without exceeding any depot's available stock or loading capacity.}
 
 \vspace{6pt}
 \begin{center}
@@ -114,6 +114,7 @@ At the beginning of each month, the General Manager (Logistics \& Movement) at t
 \subsection*{1. Mathematical Formulation}
 \textbf{Sets and Indices:} $i \in I = \{1, 2, 3, 4\}$ (FCI Depots), $j \in J = \{1, \dots, 6\}$ (District Warehouses), $k \in K = \{1, 2\}$ (1: Wheat, 2: Rice).\\[2pt]
 \textbf{Decision Variables:} $x_{ijk} \ge 0$ denotes metric tonnes (MT) of commodity $k$ dispatched from depot $i$ to district $j$ per month ($4 \times 6 \times 2 = \mathbf{48}$ variables).\\[2pt]
+\textbf{Input Parameters:} $S_{ik}$ is available stock of grain $k$ at depot $i$ (MT). $D_{jk}$ is district $j$'s monthly demand for grain $k$ (MT). $C_i$ is depot $i$'s combined wheat and rice loading and dispatch capacity (MT/month).\\[2pt]
 \textbf{Objective Function:} Minimize scenario monthly freight haulage and handling expenditure:
 \begin{equation}
 \min Z = \sum_{i=1}^4 \sum_{j=1}^6 \sum_{k=1}^2 c_{ij} x_{ijk} = \sum_{i=1}^4 \sum_{j=1}^6 c_{ij} (x_{ij1} + x_{ij2})
@@ -148,8 +149,9 @@ where $c_{ij} = \alpha + \beta \cdot d_{ij} = 100.00 + 2.50 \cdot d_{ij}$ [INR/M
 \vspace{-4pt}
 
 \subsection*{2. Why the Shared Loading Limit Matters}
-Because shipping grain costs money on every route, the solver will never ship more grain to a district than it asks for. Every district receives its exact requirement. Without Constraint (3), we could plan wheat and rice separately in two tables, one for each grain. But depots use the same loading bays, labour crews and weighbridges for both grains. Each depot can load less in a month than it holds in stock. Chhani, for example, holds 34,000 MT but can load only 28,000 MT per month. Wheat and rice must therefore share that limit. The lowest-cost plan uses all the loading capacity at Sabarmati, Chhani and Ghanteshwar, while Gandhidham has 9,000 MT of spare capacity.
+Because shipping grain costs money on every route, the solver will never ship more grain to a district than it asks for. Every district receives its exact requirement. Without Constraint (3), we could plan wheat and rice separately in two tables, one for each grain. But depots use the same loading bays, labour crews and weighbridges for both grains. In the baseline inputs, each depot can load less in a month than it holds in stock, $C_i < S_{i1}+S_{i2}$. Chhani, for example, holds 34,000 MT but can load only 28,000 MT per month. Wheat and rice must therefore share that limit. The lowest-cost plan uses all the loading capacity at Sabarmati, Chhani and Ghanteshwar, while Gandhidham has 9,000 MT of spare capacity.
 
+\vspace{-6pt}
 \subsection*{3. Modeling Assumptions}
 \begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}
 \item \textbf{Uniform Grain Quality.} All wheat and rice is of standard fair average quality, so grain from any depot can satisfy any district.
@@ -174,9 +176,9 @@ Because shipping grain costs money on every route, the solver will never ship mo
 
 
 \subsection*{1. Why Linear Programming and Two-Phase Simplex Fit This Problem}
-\textbf{Why linear programming?} Cost, stock use, district deliveries and depot loading are all sums of the tonnes shipped, with a fixed cost per tonne on each route. Standard transportation methods such as MODI and Stepping-Stone are designed for a single product. Using one table for wheat and another for rice would miss the loading limit the two grains share. Linear programming includes that limit directly and finds the lowest-cost schedule that meets all the rules.
+Linear Programming was chosen because cost, stock use, district deliveries and depot loading are all sums of the tonnes shipped, with a fixed cost per tonne on each route. Standard transportation methods such as MODI and Stepping-Stone are designed for a single product. Using one table for wheat and another for rice would miss the loading limit the two grains share. Linear programming includes that limit directly and finds the lowest-cost schedule that meets all the rules.
 
-\textbf{Why two phases?} Simplex needs a valid starting schedule, called a basic feasible solution. With only upper limits, sending nothing can give us a place to start. Here, sending nothing leaves all 132,000 MT of district demand unmet. Phase I finds a schedule that meets demand and stays within the depot limits. Phase II lowers its cost.
+Two-Phase Simplex was used here because Simplex needs a valid starting schedule, called a basic feasible solution. With only upper limits, sending nothing can give us a place to start. Here, sending nothing leaves all 132,000 MT of district demand unmet. Phase I finds a schedule that meets demand and stays within the depot limits. Phase II lowers its cost.
 
 
 \subsection*{2. Converting the Problem into Standard Simplex Form}
@@ -205,11 +207,20 @@ Demand (12) & $\sum_{i} x_{ijk}$ & & & $-e_{jk}$ & $+a_{jk}$ & $D_{jk}$ \\
 Each row shows the terms on the left of its equation. With $x_{ijk}=0$ and $e_{jk}=0$, the starting values $s^S_{ik}=S_{ik}$, $s^C_i=C_i$ and $a_{jk}=D_{jk}$ balance all 24 equations. For example, a 10 MT wheat requirement starts with $a_{jk}=10$. Phase I replaces that temporary amount with shipments.
 
 \subsection*{3. How the Solver Reached the Optimal Answer}
-\textbf{Phase I. Find a feasible schedule.} The first objective is to minimise $W=\sum_{j,k}a_{jk}$. It starts at 132,000 MT. The solver uses the minimum-ratio test to keep the variables nonnegative and Bland's rule to select an entering variable and break ties. After \textbf{28 steps (pivots)}, $W=0$. Since all artificial variables are nonnegative, each is zero and the shipments meet the original constraints.
+The model was solved using a custom Two-Phase Simplex implementation in \href{https://github.com/abhitejj/CE637-Infra_Project/blob/main/scripts/03_solve_optimization.py}{\texttt{scripts/03\_solve\_optimization.py}}. The implementation uses Bland's rule for entering-variable selection and leaving-variable tie-breaking, with a numerical tolerance of $\epsilon=10^{-9}$.
 
-\textbf{Phase II. Minimise transport cost.} The solver removes the artificial columns and writes the rupee cost objective for the feasible basis from Phase I. It uses reduced costs to identify changes that could lower total cost while the basic variables adjust. After another 28 steps, no reduced cost is below $-10^{-9}$, the cutoff used to test for improvement. The run took \textbf{56 pivots in total} and reached a minimum monthly cost of \textbf{INR 5,69,82,720 (Rs.~5.70 crore)}.
+\textbf{Phase I. Establishing feasibility.} The initial basis consists of 12 slack variables for the stock and loading constraints and 12 artificial variables for the demand constraints. The auxiliary objective is
+\[
+\min W=\sum_{j,k}a_{jk},
+\]
+with an initial value of 132,000 MT. Successive pivots reduce $W$, while the minimum-ratio test maintains primal feasibility in the augmented problem. After \textbf{28 pivots}, the auxiliary objective reaches $W^*=0$. Since $a_{jk}\ge0$, all artificial variables are zero, establishing a basic feasible solution to the original problem.
 
-\textbf{Independent check.} SciPy's \texttt{linprog} with the HiGHS dual simplex method gave the same minimum for the original 48-variable model, \textbf{INR 5,69,82,720.00}.
+\textbf{Phase II. Minimising cost.} The artificial-variable columns are removed, and the original objective $Z=\sum_{i,j,k}c_{ij}x_{ijk}$ is restored. The objective row is adjusted to the current basis, and reduced costs are evaluated to identify eligible entering variables. Pivoting continues until every reduced cost satisfies $\bar c_q\ge-\epsilon$, meeting the optimality condition within the specified tolerance. Phase II requires \textbf{28 additional pivots}, bringing the total to \textbf{56 pivots} and yielding
+\[
+\boxed{Z^*=\text{INR }5,69,82,720.00\approx\text{Rs. }5.70\text{ crore/month}}.
+\]
+
+\textbf{Independent solver verification.} The original 48-variable LP was also solved using SciPy's \texttt{linprog} with \texttt{method='highs-ds'}. The custom Simplex and HiGHS solutions both satisfy the original stock, demand and loading constraints and return the same objective value, with a reported absolute difference of INR 0.000000.
 
 \vfill
 \begin{flushright}
@@ -277,7 +288,7 @@ Surat needs 34,000 MT per month, made up of 22,000 MT of wheat and 12,000 MT of 
 
 Sabarmati sends 34,000 MT to Ahmedabad and uses the remaining 11,000 MT of its 45,000 MT limit for Surat. Ghanteshwar sends 18,000 MT to Rajkot and uses the remaining 12,000 MT of its 30,000 MT limit for Surat. Together with Chhani, these depots cover 30,000 MT of Surat's requirement and use all their loading capacity.
 
-The remaining 4,000 MT comes from Gandhidham as rice, travelling about 564 km at Rs.~1,510.10 per tonne. This route alone costs Rs.~60.40 lakh per month. In the plan shown in Table 4.1, the four routes to Surat account for about 56\% of total transport and handling cost, even though Surat receives about 26\% of the grain. The longer trips illustrate why loading capacity near Surat matters.
+The remaining 4,000 MT comes from Gandhidham as rice, travelling about 564 km at Rs.~1,510.10 per tonne. This route alone costs Rs.~60.40 lakh per month. In the plan shown in Table 4.1, the four routes to Surat account for about 56\% of total transport and handling cost, even though Surat receives about 26\% of the grain. \textbf{The longer trips illustrate why loading capacity near Surat matters.}
 
 \vfill
 \begin{flushright}
@@ -376,7 +387,7 @@ We tested rates from Rs.~1.50 to Rs.~4.00 per tonne-km. Total cost rose roughly 
 \item \textbf{Food Corporation of India (FCI) Gujarat Regional Office \& Directorate of Food and Civil Supplies, Government of Gujarat}. \textit{District-wise Storage Godown Capacities and Monthly PDS Allocation Statistics}. \url{https://dcs-dof.gujarat.gov.in/} and \url{https://ipds.gujarat.gov.in/}. Accessed November 2026.
 \item \textbf{Project OSRM}. \textit{Open Source Routing Machine: Distance Table API and High-Performance Routing Engine}. \url{https://project-osrm.org/docs/v5.24.0/api/#table-service}.
 \item \textbf{Virtanen, P., Gommers, R., Oliphant, T. E., et al.} (2020). SciPy 1.0: Fundamental Algorithms for Scientific Computing in Python. \textit{Nature Methods}, 17(3), 261--272. HiGHS Linear Optimization Solver: \url{https://docs.scipy.org/doc/scipy/reference/optimize.linprog-highs-ds.html}.
-\item \textbf{Project Repository \& Implementation Code}. Optimization pipelines, Two-Phase Simplex solvers, and datasets in \texttt{scripts/01}--\texttt{scripts/05}, \texttt{data/}, and \texttt{outputs/tables/}. IIT Gandhinagar.
+\item \textbf{Project Repository \& Implementation Code}. Optimization pipelines, Two-Phase Simplex solvers, and datasets in \texttt{scripts/01}--\texttt{scripts/05}, \texttt{data/}, and \texttt{outputs/tables/}. IIT Gandhinagar. \url{https://github.com/abhitejj/CE637-Infra_Project}.
 \end{enumerate}
 
 \vfill

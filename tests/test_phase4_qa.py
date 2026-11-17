@@ -122,9 +122,9 @@ class TestPhase4Deliverables(unittest.TestCase):
         self.assertIn("56,982,720.00", self.tex_content)
         self.assertIn("431.69", self.tex_content)
         self.assertIn("17.51 Million Tonne-km", self.tex_content)
-        self.assertIn(f"{piv_1} steps (pivots)", self.tex_content)
-        self.assertIn(f"another {piv_2} steps", self.tex_content)
-        self.assertIn(f"{total_piv} pivots in total", self.tex_content)
+        self.assertIn(f"{piv_1} pivots", self.tex_content)
+        self.assertIn(f"{piv_2} additional pivots", self.tex_content)
+        self.assertIn(f"{total_piv} pivots", self.tex_content)
 
         # Check in Markdown content
         self.assertIn("56,982,720.00", self.md_content)
