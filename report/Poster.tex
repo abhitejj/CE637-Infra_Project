@@ -90,7 +90,7 @@
       \vspace{2pt}
 
       \textbf{Shared Handling Bottleneck.} Depot dispatch capacity is tighter than physical stock across all depots ($C_i < S_{i1} + S_{i2}$). At FSD Chhani, 34,000 MT is stocked but only 28,000 MT can be loaded monthly, coupling wheat and rice into direct competition.\\[4pt]
-      \textbf{Algorithmic Solution \& Telemetry.} A custom Two-Phase Simplex solver was implemented with Bland's anti-cycling rule to clear initial demand infeasibility. The solver converged in exactly \textbf{56 pivots} (\textbf{Phase I: 28 pivots} to feasibility, \textbf{Phase II: 28 pivots} to optimality), matching SciPy HiGHS dual simplex (\texttt{highs-ds}) machine-precision cost (\textbf{\Rs 5.70 crore}).
+      \textbf{Algorithmic Solution.} A custom Two-Phase Simplex solver was implemented with Bland's anti-cycling rule to clear initial demand infeasibility. The solver converged in exactly \textbf{56 pivots} (\textbf{Phase I: 28 pivots} to feasibility, \textbf{Phase II: 28 pivots} to optimality), matching SciPy HiGHS dual simplex (\texttt{highs-ds}) machine-precision cost (\textbf{\Rs 5.70 crore}).
     };
   \end{tikzpicture}
 
