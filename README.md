@@ -19,7 +19,7 @@
 
 Every month, the General Manager (Logistics & Movement) at the **Food Corporation of India (FCI) Gujarat Regional Office**, in coordination with the Managing Director of the **Gujarat State Civil Supplies Corporation Limited (GSCSCL)**, must determine how food grains move from bulk railhead storage depots to district warehouses to fulfill statutory public distribution entitlements under the National Food Security Act (NFSA, 2013).
 
-This study formulates and solves a multi-commodity linear programming (LP) network model to minimize the statewide freight and terminal handling expenditure across Gujarat's highway corridors. The model coordinates the monthly distribution of **132,000 metric tonnes (MT)** of grain (**90,000 MT of Wheat** and **42,000 MT of Rice**) from **4 FCI railhead supply depots** to **6 GSCSCL district warehouses** across 24 candidate highway corridors.
+This study formulates and solves a multi-commodity linear programming (LP) network model to minimize the statewide freight and terminal handling expenditure across Gujarat's highway corridors. The model coordinates the monthly distribution of **1,32,000 metric tonnes (MT)** of grain (**90,000 MT of Wheat** and **42,000 MT of Rice**) from **4 FCI railhead supply depots** to **6 GSCSCL district warehouses** across 24 candidate highway corridors.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -48,9 +48,9 @@ This study formulates and solves a multi-commodity linear programming (LP) netwo
 ```
 
 ### Key Verified Results:
-* **Minimum Monthly Logistics Expenditure**: **₹56,982,720.00** (**₹5.70 Crore** / month).
+* **Minimum Monthly Logistics Expenditure**: **₹5,69,82,720.00** (**₹5.70 Crore** / month).
 * **Average Unit Delivery Cost**: **₹431.69 / MT** (₹43.17 per quintal).
-* **Total Transportation Work**: **17,513,100 Tonne-Kilometers** (Average lead distance: **132.7 km**).
+* **Total Transportation Work**: **1,75,13,100 Tonne-Kilometers** (Average lead distance: **132.7 km**).
 * **Algorithmic Convergence**: Custom Two-Phase Simplex converges in exactly **56 pivots** (28 Phase I + 28 Phase II), matching SciPy HiGHS (`highs-ds`) to machine precision ($0.000000$ INR error).
 * **Core Operational Bottleneck**: Surat needs 34,000 MT but has no local supply depot in this model. Nearest depot Chhani can only send 7,000 MT before hitting its 28,000 MT monthly loading limit; Surat must therefore draw grain from all 4 depots, including a 564 km haul from Gandhidham.
 * **Targeted Infrastructure Expansion**: Expanding Chhani's loading capacity from 28,000 MT to 34,000 MT (+6,000 MT) saves **₹55,04,700 / month** (₹6.61 Crore annually).
@@ -72,10 +72,10 @@ This study formulates and solves a multi-commodity linear programming (LP) netwo
 | **W4** | Rajkot District Godown (Aji GIDC) | Rajkot | Demand Sink | 22.3039°N | 70.8022°E | 13,000 | 5,000 | **18,000 MT** (Total Demand $D_4$) |
 | **W5** | Banaskantha Godown (Palanpur) | Banaskantha | Demand Sink | 24.1724°N | 72.4346°E | 11,000 | 5,000 | **16,000 MT** (Total Demand $D_5$) |
 | **W6** | Kutch District Godown (Bhuj) | Kutch | Demand Sink | 23.2420°N | 69.6669°E | 6,000 | 3,000 | **9,000 MT** (Total Demand $D_6$) |
-| **Total**| | | | | | **112,000** (Supply)<br>**90,000** (Demand) | **55,000** (Supply)<br>**42,000** (Demand) | **141,000 MT** (Total Cap)<br>**132,000 MT** (Total Demand) |
+| **Total**| | | | | | **1,12,000** (Supply)<br>**90,000** (Demand) | **55,000** (Supply)<br>**42,000** (Demand) | **1,41,000 MT** (Total Cap)<br>**1,32,000 MT** (Total Demand) |
 
 ### The Shared Handling Bottleneck
-In real-world grain logistics, static storage capacity differs fundamentally from monthly throughput capacity. While depots hold combined stock of 167,000 MT, physical loading bays, 60 MT weighbridges, and rail siding cycle limits cap monthly aggregate dispatch ($C_i$) at **141,000 MT**. 
+In real-world grain logistics, static storage capacity differs fundamentally from monthly throughput capacity. While depots hold combined stock of 1,67,000 MT, physical loading bays, 60 MT weighbridges, and rail siding cycle limits cap monthly aggregate dispatch ($C_i$) at **1,41,000 MT**. 
 
 Crucially, **$C_i < S_{i1} + S_{i2}$ across every depot** (e.g., FSD Chhani holds 34,000 MT physical stock but can dispatch at most 28,000 MT). This shared limit tightly couples wheat and rice into direct operational competition for truck loading slots.
 
@@ -124,10 +124,10 @@ Because all 12 demand constraints are $\ge$, the origin $x=0$ is strictly infeas
 $$\text{Total Columns} = 48 \text{ (Primal)} + 12 \text{ (Slacks)} + 12 \text{ (Surplus)} + 12 \text{ (Artificial)} = \mathbf{84 \text{ variables across 24 equality rows}}$$
 
 ### Solver Telemetry & Verification
-* **Phase I**: Minimized artificial sum $W = \sum a_m$, driving infeasibility from $132,000 \to 0.000000$ in **28 pivots** using Bland's anti-cycling rule.
+* **Phase I**: Minimized artificial sum $W = \sum a_m$, driving infeasibility from $1,32,000 \to 0.000000$ in **28 pivots** using Bland's anti-cycling rule.
 * **Phase II**: Dropped artificial variables and optimized the economic objective $Z$ in **28 pivots**.
 * **Total Simplex Work**: Exactly **56 pivots**.
-* **Cross-Solver Audit**: Benchmarked against SciPy HiGHS (`method='highs-ds'`). Both solvers converge to **₹56,982,720.00** with **0.000000 INR error**.
+* **Cross-Solver Audit**: Benchmarked against SciPy HiGHS (`method='highs-ds'`). Both solvers converge to **₹5,69,82,720.00** with **0.000000 INR error**.
 
 ---
 
@@ -147,7 +147,7 @@ The optimal solution activates **9 highway corridors** out of 24 candidate route
 | **D4: Gandhidham** | W2: Surat | 564.0 km | 0 | 4,000 | **4,000** | ₹1,510.10 | ₹60,40,400.00 | 2,256,160 |
 | **D4: Gandhidham** | W5: Banaskantha | 320.3 km | 11,000 | 5,000 | **16,000** | ₹900.70 | ₹1,44,11,200.00 | 5,124,480 |
 | **D4: Gandhidham** | W6: Kutch (Bhuj) | 57.6 km | 6,000 | 3,000 | **9,000** | ₹244.05 | ₹21,96,450.00 | 518,580 |
-| **Statewide Total** | | | **90,000** | **42,000** | **132,000** | | **₹5,69,82,720.00** | **17,513,100** |
+| **Statewide Total** | | | **90,000** | **42,000** | **1,32,000** | | **₹5,69,82,720.00** | **1,75,13,100** |
 
 ### Network Visualizations
 
@@ -257,4 +257,4 @@ This automated pipeline:
 4. Executes parametric sensitivity analysis across Chhani capacity and freight rates (`scripts/04_sensitivity_analysis.py`).
 5. Renders 300-DPI publication figures (`scripts/05_generate_figures.py`).
 6. Compiles LaTeX deliverables (`Summary_Slide.pdf`, `Final_Report.pdf`, `Poster.pdf`).
-7. Runs the complete test suite with 25 independent QA checks.
+7. Runs the complete test suite with 26 independent QA checks.
