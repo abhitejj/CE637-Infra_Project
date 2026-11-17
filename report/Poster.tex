@@ -48,8 +48,8 @@
     \end{minipage}\hfill
     \begin{minipage}[c]{0.26\linewidth}
       \color{white}\raggedleft
-      {\fontsize{12pt}{15pt}\selectfont \textbf{Abhitej Singh Bhullar} (Roll: 23110009)}\\[2pt]
-      {\fontsize{12pt}{15pt}\selectfont \textbf{Radhika Purohit} (Roll: 24110280)}\\[4pt]
+      {\fontsize{12pt}{15pt}\selectfont \textbf{Abhitej Singh Bhullar} (Roll no.: 23110009)}\\[2pt]
+      {\fontsize{12pt}{15pt}\selectfont \textbf{Radhika Purohit} (Roll no.: 24110280)}\\[4pt]
       {\fontsize{10.5pt}{13pt}\selectfont \textit{Indian Institute of Technology Gandhinagar}}\\[2pt]
       {\fontsize{9.5pt}{12pt}\selectfont \textcolor{accentgold}{\textbf{November 2026}}}
     \end{minipage}
@@ -130,7 +130,7 @@
       {\fontsize{10.5pt}{13pt}\selectfont \textbf{\color{headerblue}Monthly Shipments on the Nine Routes Used}}\\[2pt]
       \centering
       \small
-      \renewcommand{\arraystretch}{1.12}
+      \renewcommand{\arraystretch}{1.22}
       \setlength{\tabcolsep}{4pt}
       \begin{tabularx}{\linewidth}{@{}lXr>{\raggedleft\arraybackslash}r>{\raggedleft\arraybackslash}r>{\raggedleft\arraybackslash}r>{\raggedleft\arraybackslash}r@{}}
         \toprule
@@ -150,11 +150,14 @@
         \bottomrule
       \end{tabularx}
 
-      \vspace{5pt}
-      \raggedright \small
-
-      \textbf{\color{alertred}Why Surat needs grain from all four depots:}
-      Surat needs 34,000 MT and has no supply depot in this model. Chhani is about 155 km away. After sending 21,000 MT to Vadodara, it has room to load 7,000 MT for Surat. Sabarmati sends 11,000 MT, Ghanteshwar sends 12,000 MT and Gandhidham sends 4,000 MT from 564 km away.
+      \vspace{9pt}
+      \begin{tikzpicture}
+        \node[draw=alertred!40, fill=red!3, rounded corners=5pt, line width=0.8pt, inner sep=6pt, text width=\linewidth-14.8pt] {
+          \raggedright \small
+          \textbf{\color{alertred}Why Surat needs grain from all four depots:}\\[2pt]
+          Surat needs 34,000 MT and has no supply depot in this model. Chhani is about 155 km away. After sending 21,000 MT to Vadodara, it has room to load 7,000 MT for Surat. Sabarmati sends 11,000 MT, Ghanteshwar sends 12,000 MT and Gandhidham sends 4,000 MT from 564 km away.
+        };
+      \end{tikzpicture}
     };
   \end{tikzpicture}
 
