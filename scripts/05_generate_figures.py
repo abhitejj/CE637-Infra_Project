@@ -82,20 +82,20 @@ def plot_fig1_network_flow_map():
     for _, r in df_demands.iterrows():
         wh_base[r["warehouse_id"]] = (r["longitude"], r["latitude"], r["name"], r["wheat_demand_mt"] + r["rice_demand_mt"])
 
-    # Visual jitter offsets for co-located clusters (~7 km apart)
-    # Allows square (Depot) and circle (Warehouse) markers to sit side-by-side cleanly
+    # Separate nearby markers in the drawing so local arrow shafts and heads remain visible.
+    # Actual coordinates and distances remain in the input data.
     depot_plot = {
-        "D1": (depot_base["D1"][0] - 0.05, depot_base["D1"][1] + 0.02),
-        "D2": (depot_base["D2"][0] - 0.05, depot_base["D2"][1] + 0.02),
-        "D3": (depot_base["D3"][0] - 0.05, depot_base["D3"][1] + 0.02),
+        "D1": (depot_base["D1"][0] - 0.25, depot_base["D1"][1] + 0.08),
+        "D2": (depot_base["D2"][0] - 0.25, depot_base["D2"][1] + 0.08),
+        "D3": (depot_base["D3"][0] - 0.25, depot_base["D3"][1] + 0.08),
         "D4": (depot_base["D4"][0], depot_base["D4"][1])  # Gandhidham
     }
 
     wh_plot = {
-        "W1": (wh_base["W1"][0] + 0.05, wh_base["W1"][1] - 0.02),  # Ahmedabad
+        "W1": (wh_base["W1"][0] + 0.25, wh_base["W1"][1] - 0.08),  # Ahmedabad
         "W2": (wh_base["W2"][0], wh_base["W2"][1]),                # Surat
-        "W3": (wh_base["W3"][0] + 0.05, wh_base["W3"][1] - 0.02),  # Vadodara
-        "W4": (wh_base["W4"][0] + 0.05, wh_base["W4"][1] - 0.02),  # Rajkot
+        "W3": (wh_base["W3"][0] + 0.25, wh_base["W3"][1] - 0.08),  # Vadodara
+        "W4": (wh_base["W4"][0] + 0.25, wh_base["W4"][1] - 0.08),  # Rajkot
         "W5": (wh_base["W5"][0], wh_base["W5"][1]),                # Banaskantha
         "W6": (wh_base["W6"][0], wh_base["W6"][1])                 # Kutch (Bhuj)
     }
@@ -401,6 +401,9 @@ def plot_fig1_network_flow_map():
     ax.set_xlim(68.5, 74.8)
     ax.set_ylim(20.5, 24.8)
     ax.grid(True, linestyle="--", alpha=0.4)
+    ax.text(0.02, 0.02, "Nearby depot and warehouse markers separated for readability.",
+            transform=ax.transAxes, fontsize=8, color="#444444",
+            bbox=dict(facecolor="white", edgecolor="none", alpha=0.9), zorder=9)
 
     # Custom Legend
     legend_elements = [
