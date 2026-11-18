@@ -86,6 +86,8 @@ class TestPhase4Deliverables(unittest.TestCase):
     def test_04_section_6_sentence_count_exact(self):
         """Rubric requirement: Section 6 must have EXACTLY THREE sentences."""
         page_6_text = self.pdf_reader.pages[5].extract_text()
+        # The report's plain page-number footer is not part of the final sentence.
+        page_6_text = re.sub(r"\n\s*6\s*\Z", "", page_6_text)
 
         # Find items 1., 2., 3.
         pattern = r"\d\.\s+([A-Z].*?)(?=(?:\d\.\s+[A-Z]|\Z|Page\s+6))"
