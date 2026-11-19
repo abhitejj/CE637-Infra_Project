@@ -140,34 +140,35 @@ where $c_{ij} = \alpha + \beta \cdot d_{ij} = 100.00 + 2.50 \cdot d_{ij}$ [INR/M
 \text{4. Non-Negativity Restrictions (48):} \quad & x_{ijk} \ge 0 \quad \forall i \in I, \; j \in J, \; k \in K
 \end{align}
 
-\vspace{4pt}
+\vspace{1pt}
 \noindent\textbf{Table 2.1: Road Distances $d_{ij}$ (km) and Transport Cost per Tonne $c_{ij}$ (INR/MT)}\\[3pt]
-{\renewcommand{\arraystretch}{1.42}%
+{\renewcommand{\arraystretch}{1.30}%
 \resizebox{\textwidth}{!}{
 \begin{tabular}{lcccccc}
 \toprule
 \textbf{Origin Depot} & \textbf{W1 (Ahmedabad)} & \textbf{W2 (Surat)} & \textbf{W3 (Vadodara)} & \textbf{W4 (Rajkot)} & \textbf{W5 (Banaskantha)} & \textbf{W6 (Kutch/Bhuj)} \\
 \midrule
-\textbf{D1: Sabarmati (Ahmd)} & 6.7 km (\INR 116.85) & 257.4 km (\INR 743.55) & 122.3 km (\INR 405.75) & 220.3 km (\INR 650.83) & 140.2 km (\INR 450.50) & 356.9 km (\INR 992.32) \\
-\textbf{D2: Chhani (Vadodara)} & 102.6 km (\INR 356.42) & 154.9 km (\INR 487.20) & 7.5 km (\INR 118.80) & 274.8 km (\INR 786.88) & 253.3 km (\INR 733.35) & 450.5 km (\INR 1226.25) \\
-\textbf{D3: Ghanteshwar (Rajkot)} & 222.4 km (\INR 656.12) & 429.8 km (\INR 1174.48) & 290.0 km (\INR 825.08) & 8.5 km (\INR 121.32) & 326.6 km (\INR 916.58) & 239.2 km (\INR 698.10) \\
-\textbf{D4: Gandhidham (Kutch)} & 356.7 km (\INR 991.75) & 564.0 km (\INR 1510.10) & 424.3 km (\INR 1160.68) & 199.9 km (\INR 599.65) & 320.3 km (\INR 900.70) & 57.6 km (\INR 244.05) \\
+\textbf{D1: Sabarmati (Ahmd)} & 6.74 km (\INR 116.85) & 257.42 km (\INR 743.55) & 122.30 km (\INR 405.75) & 220.33 km (\INR 650.83) & 140.20 km (\INR 450.50) & 356.93 km (\INR 992.32) \\
+\textbf{D2: Chhani (Vadodara)} & 102.57 km (\INR 356.42) & 154.88 km (\INR 487.20) & 7.52 km (\INR 118.80) & 274.75 km (\INR 786.88) & 253.34 km (\INR 733.35) & 450.50 km (\INR 1226.25) \\
+\textbf{D3: Ghanteshwar (Rajkot)} & 222.45 km (\INR 656.12) & 429.79 km (\INR 1174.48) & 290.03 km (\INR 825.08) & 8.53 km (\INR 121.32) & 326.63 km (\INR 916.58) & 239.24 km (\INR 698.10) \\
+\textbf{D4: Gandhidham (Kutch)} & 356.70 km (\INR 991.75) & 564.04 km (\INR 1510.10) & 424.27 km (\INR 1160.68) & 199.86 km (\INR 599.65) & 320.28 km (\INR 900.70) & 57.62 km (\INR 244.05) \\
 \bottomrule
 \end{tabular}
-}}\\[4pt]
+}}\\[1pt]
 {\footnotesize \textit{Source note:} Driving distances $d_{ij}$ were obtained via the OSRM Table API (\texttt{/table/v1/driving}) across the Table 1.1 coordinates and saved in \href{https://github.com/abhitejj/CE637-Infra_Project/blob/main/data/raw/osrm_response.json}{\texttt{data/raw/osrm\_response.json}}; all input data sources and provenance categories are logged in \href{https://github.com/abhitejj/CE637-Infra_Project/blob/main/data/source_register.csv}{\texttt{data/source\_register.csv}}.}
 
 \subsection*{2. Why the Shared Loading Limit Matters}
-Because shipping grain costs money on every route, the solver will never ship more grain to a district than it asks for. Every district receives its exact requirement. Without Constraint (3), we could plan wheat and rice separately in 2 tables, 1 for each grain. But depots use the same loading bays, labour crews and weighbridges for both grains. In the baseline inputs, each depot can load less in a month than it holds in stock, $C_i < S_{i1}+S_{i2}$. Chhani, for example, holds 34,000 MT but can load only 28,000 MT per month. Wheat and rice must therefore share that limit. The lowest-cost plan uses all the loading capacity at Sabarmati, Chhani and Ghanteshwar, while Gandhidham has 9,000 MT of spare capacity.
+Because shipping grain costs money on every route, the solver will never ship more grain to a district than it asks for. Every district receives its exact requirement. Without Constraint (4), we could plan wheat and rice separately in 2 tables, 1 for each grain. But depots use the same loading bays, labour crews and weighbridges for both grains. In the baseline inputs, each depot can load less in a month than it holds in stock, $C_i < S_{i1}+S_{i2}$. Chhani, for example, holds 34,000 MT but can load only 28,000 MT per month. Wheat and rice must therefore share that limit. The lowest-cost plan uses all the loading capacity at Sabarmati, Chhani and Ghanteshwar, while Gandhidham has 9,000 MT of spare capacity.
 
 \subsection*{3. Modeling Assumptions}
-\begin{itemize}\setlength{\itemsep}{1.5pt}\setlength{\parskip}{0pt}
+\begin{itemize}\setlength{\itemsep}{0.5pt}\setlength{\parskip}{0pt}\small
 \item \textbf{Uniform Grain Quality.} All wheat and rice is of standard fair average quality, so grain from any depot can satisfy any district.
 \item \textbf{Single Average Month.} We plan for one standard 30-day month rather than tracking day-by-day inventory changes.
 \item \textbf{Linear Transport Cost.} Handling cost is assumed to be Rs.~100 per tonne and freight cost Rs.~2.50 per tonne-km. These are illustrative planning assumptions, recorded in the project's \href{https://github.com/abhitejj/CE637-Infra_Project/blob/main/data/source_register.csv}{source register}, rather than rates taken from an FCI freight schedule.
 \item \textbf{District-Level Grouping.} Demand from individual towns and ration shops is grouped at the main district warehouse.
 \item \textbf{Zero Transit Loss.} We assume no grain is spilled or spoiled during highway transport.
 \item \textbf{Direct Point-to-Point Delivery.} Trucks go from an FCI depot to a district warehouse without stopping at intermediate hubs.
+\item \textbf{Illustrative Data Provenance.} Depot stocks ($S_{ik}$), loading capacities ($C_i$, including Chhani's 28,000~MT limit on which the Rs.~6.61~crore headline depends), and district demands ($D_{jk}$) are illustrative planning figures, not values drawn from a published official table; they are classified as \textsc{Assumption} in \href{https://github.com/abhitejj/CE637-Infra_Project/blob/main/data/source_register.csv}{\texttt{data/source\_register.csv}}.
 \end{itemize}
 
 \newpage
@@ -256,6 +257,8 @@ The optimal plan meets the monthly demand of 1,32,000 MT using 9 of the 24 candi
 \end{tabular}
 }}
 
+{\footnotesize \textit{Note:} The wheat/rice split shown is one of many equal-cost optima. Any feasible offsetting swap that preserves each district's commodity requirement, each route's total tonnage and each depot's stock limit yields the same total cost.}
+
 \begin{figure}[h!]
 \centering
 \begin{minipage}{0.48\textwidth}
@@ -276,7 +279,7 @@ The optimal plan meets the monthly demand of 1,32,000 MT using 9 of the 24 candi
 \textbf{i) Excluded Zero-Flow Routes (15 of 24):} 15 of the 24 possible routes carry zero grain because cheaper options exist for every district. 12 are long-distance cross-hauls into Ahmedabad, Vadodara, Rajkot and Kutch, each of which is supplied much more cheaply by its own nearby depot (6.7 to 57.6 km away). The remaining 3 are routes from Sabarmati, Chhani and Ghanteshwar to Banaskantha: even though Sabarmati is closer to Banaskantha than Gandhidham is, using Sabarmati's limited loading capacity for Surat instead of Banaskantha saves more money overall.
 
 \vspace{5pt}
-\textbf{ii) Why Surat Draws from All Four Depots (Figure 1):} Surat needs 34,000 MT (22,000 MT wheat, 12,000 MT rice) but has no supply depot in this 4-depot model. Nearest depot Chhani (155 km; Rs.~487.20/MT) sends 21,000 MT to Vadodara, leaving just 7,000 MT for Surat; Sabarmati adds 11,000 MT and Ghanteshwar adds 12,000 MT before all 3 hit capacity. The final 4,000 MT must therefore be hauled 564 km from Gandhidham at Rs.~1,510.10/MT (Rs.~60.40 lakh/month). Surat's 4 routes drive 56\% of total cost for 26\% of total grain, \textbf{highlighting why loading capacity near Surat matters.}
+\textbf{ii) Why Surat Draws from All Four Depots (Figure 1):} Surat needs 34,000 MT (22,000 MT wheat, 12,000 MT rice) but has no supply depot in this 4-depot model (the results are conditional on this choice of four supply nodes; a \href{https://gil.gujarat.gov.in/tendercms/TenderDocs/2011824164857520.pdf}{historical Gujarat directory} lists CWC Surat as a storage facility, so its exclusion reflects the study's simplified network, not verified operational unavailability). Nearest depot Chhani (155 km; Rs.~487.20/MT) sends 21,000 MT to Vadodara, leaving just 7,000 MT for Surat; Sabarmati adds 11,000 MT and Ghanteshwar adds 12,000 MT before all 3 hit capacity. The final 4,000 MT must therefore be hauled 564 km from Gandhidham at Rs.~1,510.10/MT (Rs.~60.40 lakh/month). Surat's 4 routes drive 56\% of total cost for 26\% of total grain, \textbf{highlighting why loading capacity near Surat matters.}
 
 \vspace{5pt}
 \textbf{iii) Depot Utilization (Figure 2):} Figure 2 shows that loading docks, rather than warehouse stock, limit the plan. 3 depots operate at \textbf{100\% loading capacity}: Sabarmati (45,000 MT; shadow price Rs.~766.55/MT), Chhani (28,000 MT; Rs.~1,022.90/MT) and Ghanteshwar (30,000 MT; Rs.~335.62/MT), leaving physical grain unshipped inside their godowns. Only Gandhidham retains \textbf{9,000 MT of spare loading capacity} (dispatching 29,000 of 38,000 MT; shadow price Rs.~0.00/MT).
@@ -289,11 +292,11 @@ The optimal plan meets the monthly demand of 1,32,000 MT using 9 of the 24 candi
 \section*{Section 5: One Sensitivity Check}
 
 \subsection*{1. Sensitivity Check: Expanding Chhani's Loading Capacity}
-We treat monthly loading capacity as the main operational uncertainty in this study because effective throughput can vary with equipment downtime, truck availability and labour shifts, while district demand and route distances are held fixed for the planning month. Chhani is selected for the sensitivity check because it operates at full capacity and has the highest shadow price among the four depot loading constraints (Rs.~1,022.90 per additional MT). We solved the model with Chhani's monthly loading limit set to 21,000 through 35,000 MT in steps of 1,000 MT. The shadow price measures the cost saving from a small increase in loading capacity, in INR per MT. At a breakpoint, the savings can differ on either side.
+{\small We treat monthly loading capacity as the main operational uncertainty in this study because effective throughput can vary with equipment downtime, truck availability and labour shifts, while district demand and route distances are held fixed for the planning month. Chhani is selected for the sensitivity check because it operates at full capacity and has the highest shadow price among the four depot loading constraints (Rs.~1,022.90 per additional MT). We solved the model with Chhani's monthly loading limit set to 21,000 through 35,000 MT in steps of 1,000 MT (selected rows shown). The shadow price measures the cost saving from a small increase in loading capacity, in INR per MT. At a breakpoint, the savings can differ on either side.}
 
-\vspace{6pt}
+\vspace{2pt}
 \noindent\textbf{Table 5.1: Parametric Sensitivity of FSD Chhani Dispatch Capacity ($C_2$)}\\[3pt]
-{\renewcommand{\arraystretch}{1.48}%
+{\renewcommand{\arraystretch}{1.28}%
 \resizebox{\textwidth}{!}{
 \begin{tabular}{ccccccc}
 \toprule
@@ -311,23 +314,29 @@ We treat monthly loading capacity as the main operational uncertainty in this st
 }}
 
 \begin{figure}[h!]
-\centering
-\includegraphics[width=0.70\textwidth]{fig3_sensitivity_curve_shadow_price.png}
-\vspace{-4pt}
+\vspace{-4pt}\centering
+\includegraphics[width=0.62\textwidth]{fig3_sensitivity_curve_shadow_price.png}
+\vspace{-6pt}
 \caption{\footnotesize Effect of Chhani dispatch capacity on total transport cost and shadow price. The table reports the solver value at each limit. The curve shows savings for the next tonne, which fall to zero at 34,000 MT.}
 \end{figure}
 
 \subsection*{2. Where the Savings Come From}
-\textbf{Step 1 (28,000 to 32,000 MT; Saving Rs.~1,022.90 per MT):}
+{\small \textbf{Step 1 (28,000 to 32,000 MT; Saving Rs.~1,022.90 per MT):}
 For each extra tonne Chhani sends to Surat, Gandhidham sends 1 tonne less to Surat. The cost falls from Rs.~1,510.10 to Rs.~487.20 per tonne. The difference is Rs.~1,022.90, so the first 4,000 extra tonnes save \textbf{Rs.~40,91,600 per month}.
 
 \textbf{Step 2 (32,000 to 34,000 MT; Saving Rs.~706.55 per MT):}
 Chhani takes over another tonne for Surat from Sabarmati, saving Rs.~743.55 minus Rs.~487.20, or Rs.~256.35. Sabarmati can now send a tonne to Banaskantha in place of Gandhidham, saving Rs.~900.70 minus Rs.~450.50, or Rs.~450.20. Together these changes save Rs.~706.55 per tonne. The next 2,000 tonnes save \textbf{Rs.~14,13,100 per month}.
 
-The 2 steps save \textbf{INR 55,04,700.00 per month} (Rs.~55.05 lakh), or about \textbf{Rs.~6.61 Crore} in a year if the same demand and costs hold. Adding loading capacity beyond 34,000 MT saves nothing because Chhani has no more grain to send.
+The 2 steps save \textbf{INR 55,04,700.00 per month} (Rs.~55.05 lakh), or about \textbf{Rs.~6.61 Crore} in a year if the same demand and costs hold. Adding loading capacity beyond 34,000 MT saves nothing because Chhani has no more grain to send.}
 
-\subsection*{3. What If the Rate per Kilometre Changes?}
-We tested rates from Rs.~1.50 to Rs.~4.00 per tonne-km. Total cost rose roughly in a straight line, and the routes used stayed the same.
+\subsection*{3. Effect of the Per-Kilometre Freight Rate}
+{\small With positive route costs, every optimal plan meets district demand exactly and pays the same total handling charge ($\alpha \times 1{,}32{,}000$~MT = Rs.~1.32~crore). For unrounded route costs and a common positive per-km rate~$\beta$, minimising cost is equivalent to minimising total tonne-km subject to the same stock, demand and loading constraints, so changing~$\beta$ leaves the set of optimal plans unchanged. In the saved rounded-cost experiments, aggregate corridor flows were identical at all six tested rates (Rs.~1.50 to Rs.~4.00 per tonne-km). With unrounded route costs, the minimum total expenditure is exactly:
+\[
+Z(\beta) = 1.32 + 1.75131\,\beta \quad \text{crore rupees}.
+\]
+Rounding individual route costs to two decimal places introduces small numerical departures from this identity; the saved experiments show residuals of at most Rs.~150 across the six rates.
+
+Chhani's loading capacity was chosen as the report's single sensitivity check because operational throughput can vary with equipment downtime, truck availability and labour shifts, and because relaxing its binding limit demonstrably re-routes grain between depots (Table~5.1). Whether loading capacity is objectively the most uncertain parameter in a real deployment is a study assumption: the available illustrative data do not support a measured ranking of input uncertainty.}
 
 \newpage
 
@@ -353,7 +362,7 @@ We tested rates from Rs.~1.50 to Rs.~4.00 per tonne-km. Total cost rose roughly 
 
 \begin{enumerate}\setlength{\itemsep}{10pt}
 \item \textbf{Department of Food \& Public Distribution (DFPD), Government of India}. \textit{National Food Security Act (NFSA) 2013: Coverage and Entitlements (Priority Households \& Antyodaya Anna Yojana)}. \url{https://www.nfsa.gov.in/portal/Coverage_Entitlements_NFSA_AA}. Accessed 7 November 2026.
-\item \textbf{Food Corporation of India (FCI) Gujarat Regional Office \& Directorate of Food and Civil Supplies, Government of Gujarat}. \textit{District-wise Storage Godown Capacities and Monthly PDS Allocation Statistics}. \url{https://dcs-dof.gujarat.gov.in/} and \url{https://ipds.gujarat.gov.in/}. Accessed November 2026.
+\item \textbf{Food Corporation of India (FCI) Gujarat Regional Office; Directorate of Food and Civil Supplies, Government of Gujarat; Gujarat Civil Supplies Corporation Limited (GSCSCL)}. Government portals providing background on the Gujarat PDS network and storage infrastructure (general reference; specific capacity or allocation figures used in this study are illustrative assumptions). \url{https://dcs-dof.gujarat.gov.in/} and \url{https://ipds.gujarat.gov.in/}. Accessed November 2026.
 \item \textbf{Project OSRM}. \textit{Open Source Routing Machine: Distance Table API (\texttt{/table/v1/driving}) and High-Performance Routing Engine}. \url{https://project-osrm.org/docs/v5.24.0/api/#table-service}. Driving distance response saved in \href{https://github.com/abhitejj/CE637-Infra_Project/blob/main/data/raw/osrm_response.json}{\texttt{data/raw/osrm\_response.json}}.
 \item \textbf{Virtanen, P., Gommers, R., Oliphant, T. E., et al.} (2020). SciPy 1.0: Fundamental Algorithms for Scientific Computing in Python. \textit{Nature Methods}, 17(3), 261--272. HiGHS Linear Optimization Solver: \url{https://docs.scipy.org/doc/scipy/reference/optimize.linprog-highs-ds.html}.
 \item \textbf{Project Repository \& Implementation Code}. Optimization pipelines, Two-Phase Simplex solvers, data provenance register (\href{https://github.com/abhitejj/CE637-Infra_Project/blob/main/data/source_register.csv}{\texttt{data/source\_register.csv}}), and datasets in \href{https://github.com/abhitejj/CE637-Infra_Project/tree/main/scripts}{\texttt{scripts/01}--\texttt{scripts/05}}, \href{https://github.com/abhitejj/CE637-Infra_Project/tree/main/data}{\texttt{data/}}, and \href{https://github.com/abhitejj/CE637-Infra_Project/tree/main/outputs/tables}{\texttt{outputs/tables/}}. IIT Gandhinagar. \url{https://github.com/abhitejj/CE637-Infra_Project}.
